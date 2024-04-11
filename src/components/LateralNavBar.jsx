@@ -4,7 +4,7 @@ function LateralNavBar() {
   let user = {
     name: "Jose Garcia",
     user: "Valderrama20",
-  };
+  }; // esto seria un get para trar la informacion del usuario
 
   return (
     <div className=" px-10 py-2 bg-black space-y-4 max-w-max ">
