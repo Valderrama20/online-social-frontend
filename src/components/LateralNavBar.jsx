@@ -148,7 +148,7 @@ function LateralNavBar() {
   };
 
   return (
-    <div className=" px-10 py-2 bg-black space-y-4 ">
+    <div className=" px-10 py-2 bg-black space-y-4 max-w-max ">
       <div className=" space-y-5">
         {links.map((e) => {
           return (
