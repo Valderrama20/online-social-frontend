@@ -1,12 +1,7 @@
 import { pluma, puntos } from "../asset/icons";
-import { links } from "../generalVarianbles";
+import { links, user } from "../generalVarianbles";
 
 function LateralNavBar() {
-  let user = {
-    name: "Jose Garcia",
-    user: "Valderrama20",
-  }; // esto seria un get para traer la informacion del usuario
-
   return (
     <div className=" px-10 py-2 bg-black space-y-4 max-w-max ">
       <div className=" space-y-5">

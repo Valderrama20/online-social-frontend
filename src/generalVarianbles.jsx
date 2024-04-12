@@ -45,3 +45,8 @@ export const links = [
     label: "More",
   },
 ];
+
+export let user = {
+  name: "Jose Garcia",
+  user: "Valderrama20",
+};
