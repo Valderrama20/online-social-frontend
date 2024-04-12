@@ -1,13 +1,12 @@
-import LateralNavBar from "./components/LateralNavBar";
-import Header from "./components/layout/Header";
+import Header from './components/layout/Header'
 
 function App() {
+
   return (
     <>
-      {/* <Header /> */}
-      <LateralNavBar />
+      <Header />
     </>
-  );
+  )
 }
 
-export default App;
+export default App
