@@ -1,19 +1,16 @@
 import { useState } from "react";
 function Header() {
+  const [theme, setTheme] = useState("Dark");
 
-const [theme, setTheme] = useState('Dark');
-
-const toggleDarkMode = () => {
+  const toggleDarkMode = () => {
     const html = document.getElementsByTagName("html")[0];
-    html.classList.toggle("dark")
-    if(html.classList.contains("dark")){
-      setTheme('Light')
+    html.classList.toggle("dark");
+    if (html.classList.contains("dark")) {
+      setTheme("Light");
+    } else {
+      setTheme("Dark");
     }
-    else{
-      setTheme('Dark')
-    }
-}
-    
+  };
 
   return (
     <>
@@ -55,22 +52,37 @@ const toggleDarkMode = () => {
             </button>
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900 dark:text-slate-50">
+            <a
+              href="#"
+              className="text-sm font-semibold leading-6 text-gray-900 dark:text-slate-50"
+            >
               Feed
             </a>
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900 dark:text-slate-50">
+            <a
+              href="#"
+              className="text-sm font-semibold leading-6 text-gray-900 dark:text-slate-50"
+            >
               Discover
             </a>
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900 dark:text-slate-50">
+            <a
+              href="#"
+              className="text-sm font-semibold leading-6 mt-0 text-gray-900 dark:text-slate-50"
+            >
               Messages
             </a>
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900 dark:text-slate-50">
+            <a
+              href="#"
+              className="text-sm font-semibold leading-6 text-gray-900 dark:text-slate-50"
+            >
               Log in <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <button onClick={toggleDarkMode} className="border border-indigo-600 dark:border-indigo-300 text-indigo-500 dark:text-indigo-200 p-2 rounded-xl">
-              { theme }
+            <button
+              onClick={toggleDarkMode}
+              className="border border-indigo-600 dark:border-indigo-300 text-indigo-500 dark:text-indigo-200 p-2 rounded-xl"
+            >
+              {theme}
             </button>
           </div>
         </nav>
@@ -135,8 +147,7 @@ const toggleDarkMode = () => {
                     Messages
                   </a>
                 </div>
-                <div className="py-6">
-                </div>
+                <div className="py-6"></div>
               </div>
             </div>
           </div>
@@ -144,6 +155,6 @@ const toggleDarkMode = () => {
       </header>
     </>
   );
-};
+}
 
-export default Header
+export default Header;
