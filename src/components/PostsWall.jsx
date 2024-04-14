@@ -12,7 +12,7 @@ import Card from "./CardOfPublication";
 
 function PostsWall() {
   return (
-    <div className="max-w-xl m-auto">
+    <div className="max-w-xl m-auto border-x borderColor">
       <div className=" bg-black  h-full">
         <div className=" flex items-center h-14 pr-4 border-b borderColor">
           <div className=" flex w-full justify-around ">
