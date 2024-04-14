@@ -5,10 +5,22 @@
 
 body {
     /* @apply min-h-screen bg-white dark:bg-gray-900 dark:text-gray-200; */
+    background-color: black
 }
 
 @layer components {
     .btn {
         @apply flex h-10 items-center cursor-pointer;
+    }
+
+    .borderColor {
+        @apply border-[#3c3c3d]
+    }
+
+    .placeholder-textarea::placeholder {
+        color: #71767a;
+        /* Color de texto del placeholder */
+        opacity: 1;
+        /* Opacidad del placeholder */
     }
 }
