@@ -5,9 +5,9 @@ import Header from "./components/layout/Header";
 function App() {
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       {/* <LateralNavBar /> */}
-      <Card />
+      {/* <Card /> */}
     </>
   );
 }

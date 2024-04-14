@@ -4,5 +4,11 @@
 
 
 body {
-    @apply min-h-screen bg-white dark:bg-gray-900 dark:text-gray-200;
+    /* @apply min-h-screen bg-white dark:bg-gray-900 dark:text-gray-200; */
+}
+
+@layer components {
+    .btn {
+        @apply flex h-10 items-center cursor-pointer;
+    }
 }
