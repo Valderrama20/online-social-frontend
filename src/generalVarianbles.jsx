@@ -6,6 +6,7 @@ import {
   ListsIcon,
   ProfileIcon,
   MoreIcon,
+  img,
 } from "./asset/icons";
 
 export const links = [

@@ -10,10 +10,10 @@ import {
 
 function Card() {
   return (
-    <div className="flex w-96 m-4 border border-[#545658] bg-black px-3 py-1">
+    <div className="flex w-full border-b borderColor bg-black p-3">
       <div>
         <img
-          src={`https://ui-avatars.com/api?name=${user.name}`}
+          src={`https://ui-avatars.com/api?name=${user.name}&background=0D8ABC&color=fff`}
           alt={user.name}
           className=" rounded-full  w-14"
         />
@@ -26,7 +26,7 @@ function Card() {
           </span>
 
           <span className="text-[#5e6266] font-mono">
-            @{publicationInfo.user.user}·5h
+            {publicationInfo.user.user}·5h
           </span>
         </div>
         <p className=" leading-tight text-[#d7d8d9]  ">
@@ -35,7 +35,7 @@ function Card() {
         <img
           src={publicationInfo.img}
           alt=""
-          className=" max-h-50 w-full object-cover rounded-3xl border border-[#3c3c3d] mt-3"
+          className=" max-h-50 w-full object-cover rounded-3xl border borderColor mt-3"
         />
 
         <div className=" flex text-[#71767a] ">
