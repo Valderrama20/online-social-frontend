@@ -3,7 +3,7 @@ import { links, user } from "../generalVarianbles";
 
 function LateralNavBar() {
   return (
-    <div className=" px-10 py-2 bg-black space-y-4 max-w-max ">
+    <div className=" px-10 py-2 bg-black space-y-4 max-h-screen hidden sm:block">
       <div className=" space-y-5">
         {links.map((e) => {
           return (
@@ -27,7 +27,7 @@ function LateralNavBar() {
       </button>
       <div className="flex items-center space-x-4 ">
         <img
-          src={`https://ui-avatars.com/api?name=${user.name}`}
+          src={`https://ui-avatars.com/api?name=${user.name}&background=0D8ABC&color=fff`}
           alt={user.name}
           className=" rounded-full h-10"
         />
