@@ -121,7 +121,7 @@ export const MoreIcon = (
 
 export const pluma = (
   <svg
-    className=" h-7 w-7 sm:hidden"
+    className=" h-7 w-7 lg:hidden"
     fill="white"
     stroke="transparent"
     aria-hidden="true"
@@ -139,7 +139,7 @@ export const puntos = (
     viewBox="0 0 24 24"
     strokeWidth="1.5"
     stroke="currentColor"
-    className="w-8 h-8 text-white hidden sm:flex"
+    className="w-8 h-8 text-white hidden lg:flex"
   >
     <path
       strokeLinecap="round"
