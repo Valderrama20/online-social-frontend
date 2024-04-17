@@ -5,7 +5,7 @@
 
 body {
     /* @apply min-h-screen bg-white dark:bg-gray-900 dark:text-gray-200; */
-
+    background-color: black
 }
 
 @layer components {
@@ -22,5 +22,9 @@ body {
         /* Color de texto del placeholder */
         opacity: 1;
         /* Opacidad del placeholder */
+    }
+
+    .btn-color {
+        @apply bg-sky-600
     }
 }

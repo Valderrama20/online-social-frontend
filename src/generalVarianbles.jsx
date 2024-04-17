@@ -61,3 +61,66 @@ export let publicationInfo = {
   fevorites: 25,
   views: 1346,
 };
+
+export const trendingTopics = [
+  {
+    id: 1,
+    name: "Araujo",
+    posts: "276K",
+    category: ["UEFA Champions League", "Trending"],
+  },
+  {
+    id: 2,
+    name: "Madrid",
+    posts: "637K",
+    category: ["UEFA Champions League", "Trending"],
+  },
+  {
+    id: 3,
+    name: "Lunin",
+    posts: "15.1K",
+    category: ["UEFA Champions League", "Trending"],
+  },
+  {
+    id: 4,
+    name: "Grealish",
+    posts: "17.5K",
+    category: ["Trending"],
+  },
+  {
+    id: 5,
+    name: "Xavi",
+    posts: "192K",
+    category: ["Sports", "Trending"],
+  },
+  {
+    id: 6,
+    name: "Barça",
+    posts: "466K",
+    category: ["UEFA Champions League", "Trending"],
+  },
+  {
+    id: 7,
+    name: "#TierraDeNadie6",
+    posts: "33.9K",
+    category: ["Trending"],
+  },
+  {
+    id: 8,
+    name: "El City",
+    posts: "73.4K",
+    category: ["UEFA Champions League", "Trending"],
+  },
+  {
+    id: 9,
+    name: "Nacho",
+    posts: "38.7K",
+    category: ["UEFA Champions League", "Trending"],
+  },
+  {
+    id: 10,
+    name: "Bildu",
+    posts: "49.8K",
+    category: ["Politics", "Trending"],
+  },
+];

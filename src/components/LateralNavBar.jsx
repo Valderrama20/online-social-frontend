@@ -18,7 +18,7 @@ function LateralNavBar() {
       </div>
       <div className=" flex-1 ">
         <button
-          className=" text-white bg-blue-400 px-3 lg:px-20 
+          className=" text-white btn-color px-3 lg:px-20 
                       py-3 font-semibold text-sm rounded-full 
                         lg:rounded-full -ml-2 "
         >
