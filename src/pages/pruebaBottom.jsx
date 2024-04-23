@@ -1,28 +1,51 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getUser, getPosts } from "../globalState";
+import axios from "axios";
 
 export default function Button() {
-  const arr = getPosts((state) => state.poastsArr);
-  const llamarApi = getPosts((state) => state.loadData);
+  const [image, setImage] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  const user = getUser((state) => state.user);
-  const getUser2 = getUser((state) => state.getUser);
-  const clearUser = getUser((state) => state.clearUser);
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0];
 
-  useEffect(() => {
-    llamarApi();
-    getUser2("6615c22c2173f33f66304b35");
-  }, []);
+    if (file) {
+      setLoading(true);
+
+      try {
+        // Subir la imagen a Cloudinary
+
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("upload_preset", "online2");
+        const res = await axios.post(
+          "https://api.cloudinary.com/v1_1/divbgt0ah/image/upload",
+          formData
+        );
+
+        // Actualizar el estado con la URL de la imagen
+        setImage(res.data.url);
+        setLoading(false);
+
+        console.log("Imagen subida con éxito:", res.data.url);
+      } catch (error) {
+        console.error("Error al subir la imagen:", error);
+        setLoading(false);
+      }
+    }
+  };
 
   return (
-    <div className="text-white">
-      <button onClick={() => getUser2("6615c22c2173f33f66304b35")}>
-        llamar user
-      </button>
-      <br />
-      <button onClick={() => console.log(user)}>user</button>
-      <br />
-      <button onClick={clearUser}>Eliminar</button>
+    <div>
+      <input type="file" onChange={handleImageUpload} />
+
+      {loading ? (
+        <p>Cargando...</p>
+      ) : image ? (
+        <img src={image} alt="Uploaded" style={{ width: "300px" }} />
+      ) : (
+        <p>Selecciona una imagen para subir</p>
+      )}
     </div>
   );
 }

@@ -50,7 +50,8 @@ export const getPosts = create((set) => ({
       const response = await axios.get(
         "https://online-back-6i1s.onrender.com/api/v1/post"
       );
-      set({ poastsArr: response.data });
+      set({ postsArr: response.data });
+      console.log(response.data);
     } catch (error) {
       console.error("No se pudo traer los dados", error);
     }
