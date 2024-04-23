@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   engranaje,
   img,
@@ -9,8 +10,18 @@ import {
 } from "../asset/icons";
 import { user } from "../generalVarianbles";
 import Card from "./CardOfPublication";
+import { getPosts } from "../globalState";
 
 function PostsWall() {
+  let getData = getPosts((state) => state.loadData);
+
+  useEffect(() => {
+    getData();
+  }, [getData]);
+
+  let postsData = getPosts((state) => state.postsArr);
+  console.log(postsData);
+
   return (
     <div className=" w-full  border-x borderColor">
       <div className=" bg-black ">
