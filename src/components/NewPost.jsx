@@ -10,12 +10,16 @@ import {
 import axios from "axios";
 import { useState } from "react";
 import { useRef } from "react";
+import { getUser } from "../globalState";
 
 export default function NewPost() {
-  const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [image, setImage] = useState(false);
+  const [textarea, setTextarea] = useState("");
 
-  const handleImageUpload = async (e) => {
+  let { user } = getUser();
+
+  const imageUpload = async (e) => {
     const file = e.target.files[0];
 
     if (file) {
@@ -23,7 +27,6 @@ export default function NewPost() {
 
       try {
         // Subir la imagen a Cloudinary
-
         const formData = new FormData();
         formData.append("file", file);
         formData.append("upload_preset", "online2");
@@ -41,10 +44,43 @@ export default function NewPost() {
     }
   };
 
+  // referencia para que cuando le des click a otro elemento sea el click al input file
+
   const fileInputRef = useRef(null);
 
-  const falseClickInSelect = () => {
+  const falseClickInInput = () => {
     fileInputRef.current.click();
+  };
+
+  //
+
+  let changeTextarea = (e) => {
+    setTextarea(e.target.value);
+  };
+
+  let createPost = async () => {
+    if (!user._id) {
+      alert("Tienes que iniciar sesion para crear una publicacion");
+      return;
+    }
+    console.log({
+      title: "none",
+      img: image,
+      content: textarea,
+      likes: 0,
+      userId: user._id,
+    });
+    // try {
+    //   await axios.post("https://online-back-6i1s.onrender.com/api/v1/post", {
+    //   title: "none",
+    //   img: image,
+    //   content: textarea,
+    //   likes: 0,
+    //   userId: user._id,
+    // });
+    // } catch (error) {
+    //   console.log("no se pudo enviar el post",error)
+    // }
   };
 
   return (
@@ -60,12 +96,13 @@ export default function NewPost() {
         <textarea
           className=" w-full bg-black text-white text-xl placeholder-textarea"
           placeholder="What is happening?!"
+          onChange={changeTextarea}
         ></textarea>
-        <div>
+        <div className="flex my-4">
           {loading ? (
             <div>Cargando</div>
           ) : image ? (
-            <img src={image} alt="" />
+            <img src={image} alt="" className=" rounded-3xl mx-auto" />
           ) : null}
         </div>
         <div className=" flex items-center justify-between py-3 border-t borderColor">
@@ -75,16 +112,19 @@ export default function NewPost() {
               accept="image/*"
               className="hidden"
               ref={fileInputRef}
-              onChange={handleImageUpload}
+              onChange={imageUpload}
             />
-            <button onClick={falseClickInSelect}>{img}</button>
+            <button onClick={falseClickInInput}>{img}</button>
             {gifIcon}
             {pollIcon}
             {emojiIcon}
             {scheduleIcon}
             {locationIcon}
           </div>
-          <button className=" text-white py-2 px-4 bg-sky-600 rounded-3xl font-semibold">
+          <button
+            className=" text-white py-2 px-4 bg-sky-600 rounded-3xl font-semibold"
+            onClick={createPost}
+          >
             Post
           </button>
         </div>
