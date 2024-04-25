@@ -1,8 +1,8 @@
 export default function CreateUserModal({ changeState }) {
   return (
-    <div className="fixed flex h-screen w-screen bg-black">
-      <div className=" border mx-auto my-auto text-white p-2 min-w-60 ">
-        <button onClick={changeState}>X</button>
+    <div className="fixed flex h-screen w-screen ">
+      <div className=" border m-auto text-white p-2 min-w-60 z-50 bg-black">
+        <button onClick={() => changeState("register")}>X</button>
 
         <div className="flex flex-col space-y-2 mb-5">
           <input type="text" className=" bg-transparent border h-10 " />
@@ -36,6 +36,7 @@ export default function CreateUserModal({ changeState }) {
           ></select>
         </div>
       </div>
+      <div className="fixed inset-0 bg-[rgb(85,102,125)] opacity-40 z-40"></div>
     </div>
   );
 }

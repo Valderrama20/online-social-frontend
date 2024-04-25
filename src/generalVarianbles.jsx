@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
   HomeIcon,
   ExploreIcon,
@@ -8,6 +9,7 @@ import {
   MoreIcon,
   img,
 } from "./asset/icons";
+import { token } from "./globalState";
 
 export const links = [
   {
@@ -124,3 +126,22 @@ export const trendingTopics = [
     category: ["Politics", "Trending"],
   },
 ];
+
+export let methods = {
+  get: "get",
+  post: "post",
+  put: "put",
+  delete: "delete",
+};
+
+// eliminar luego se solucinar lo de zustan
+
+let { bearerToken } = token();
+
+export const axiosInstance = axios.create({
+  baseURL: "https://online-back-6i1s.onrender.com",
+  headers: {
+    Authorization: `Bearer ${bearerToken}`,
+    "Content-Type": "application/json",
+  },
+});

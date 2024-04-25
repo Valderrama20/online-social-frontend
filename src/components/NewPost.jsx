@@ -1,4 +1,3 @@
-import { user } from "../generalVarianbles";
 import {
   img,
   gifIcon,
@@ -10,14 +9,14 @@ import {
 import axios from "axios";
 import { useState } from "react";
 import { useRef } from "react";
-import { getUser } from "../globalState";
+import { user } from "../globalState";
 
 export default function NewPost() {
   const [loading, setLoading] = useState(false);
   const [image, setImage] = useState(false);
   const [textarea, setTextarea] = useState("");
 
-  let { user } = getUser();
+  let { setUser, data } = user();
 
   const imageUpload = async (e) => {
     const file = e.target.files[0];
@@ -59,7 +58,7 @@ export default function NewPost() {
   };
 
   let createPost = async () => {
-    if (!user._id) {
+    if (!data._id) {
       alert("Tienes que iniciar sesion para crear una publicacion");
       return;
     }
@@ -87,14 +86,14 @@ export default function NewPost() {
     <div className=" flex py-3 border-b borderColor">
       <div>
         <img
-          src={`https://ui-avatars.com/api?name=${user.name}&background=0D8ABC&color=fff`}
+          src={`https://ui-avatars.com/api?name=${user.fullName}&background=0D8ABC&color=fff`}
           alt=""
           className=" rounded-full w-10 mx-2"
         />
       </div>
       <div className=" w-full mx-3 mt-1">
         <textarea
-          className=" w-full bg-black text-white text-xl placeholder-textarea"
+          className=" w-full h-auto bg-black text-white text-xl placeholder-textarea "
           placeholder="What is happening?!"
           onChange={changeTextarea}
         ></textarea>
