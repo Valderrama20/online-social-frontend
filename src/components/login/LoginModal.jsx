@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { token, user } from "../../globalState";
+import { user } from "../../globalState";
 import useAxios from "../../hooks/useAxios";
 import { methods } from "../../generalVarianbles";
 import { useEffect } from "react";
@@ -10,39 +10,31 @@ export default function LoginModal({ changeState }) {
   let [seccion, setSeccion] = useState(1);
   let [loading, setLoading] = useState(false);
   const { data, error, isLoading, fetchData } = useAxios();
+
   let navigate = useNavigate();
-  let { setToken } = token();
-  let { setUser } = user();
+  let { set } = user();
 
   useEffect(() => {
     if (data) {
-      setToken(data);
-      setUser("662a16d375d06e79beda586b");
+      set(data);
       navigate("/");
+    } else if (error) {
+      setLoading(false);
+      alert("your mail or password is bad");
+      setSeccion(1);
     }
-  }, [data]);
+  }, [data, error]);
 
   let changeInput = (e) => {
     let { name, value } = e.target;
     setUserLogin({ ...userLogin, [name]: value });
   };
 
-  let nextSeccion = () => {
-    setLoading(true);
-    setSeccion(2);
-    setTimeout(() => {
-      setLoading(false); // simula la peticion a la api
-    }, 1000);
-  };
+  let nextSeccion = () => setSeccion(2);
 
   let login = async () => {
     setLoading(true);
-
     await fetchData(methods.post, "/api/v1/auth/login", userLogin);
-
-    // setUser("662a16d375d06e79beda586b");
-    // navigate("/");
-    // aqui seteamos la informacion del usuario
   };
 
   return (

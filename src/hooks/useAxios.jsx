@@ -1,18 +1,18 @@
 import { useState } from "react";
-import { token } from "../globalState";
 import axios from "axios";
+import { user } from "../globalState";
 
 export default function useAxios() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  let { bearerToken } = token();
+  let { data: data2 } = user();
 
   const axiosInstance = axios.create({
     baseURL: "https://online-back-6i1s.onrender.com",
     headers: {
-      Authorization: `Bearer ${bearerToken}`,
+      Authorization: `Bearer ${data2.accessToken || null}`,
       "Content-Type": "application/json",
     },
   });

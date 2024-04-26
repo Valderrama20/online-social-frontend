@@ -1,7 +1,6 @@
 import axios from "axios";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-import { axiosInstance, methods } from "./generalVarianbles";
 import useAxios from "./hooks/useAxios";
 
 // Llama usuario por id
@@ -10,24 +9,16 @@ import useAxios from "./hooks/useAxios";
 
 export const user = create(
   persist(
-    (set, get) => {
-      return {
-        data: {},
-        clearUser: () => {
-          set({ user: {} });
-          localStorage.removeItem("user-logged-in");
-        },
-        setUser: async (id) => {
-          try {
-            const response = await axiosInstance.get(`/api/v1/${id}`);
-            // Usa fetchData del hook
-            set({ data: response.data });
-          } catch (error) {
-            console.error("No se pudo traer el usuario", error);
-          }
-        },
-      };
-    },
+    (set, get) => ({
+      data: {},
+      clearUser: () => {
+        set({ user: {} });
+        localStorage.removeItem("user-logged-in");
+      },
+      set: (user) => {
+        set({ data: user });
+      },
+    }),
     {
       name: "user-logged-in",
       storage: createJSONStorage(() => localStorage),
@@ -43,32 +34,6 @@ export const user = create(
 );
 
 // token de acceso
-
-export const token = create(
-  persist(
-    (set, get) => ({
-      bearerToken: null,
-      clearUser: () => {
-        set({ bearerToken: null });
-        localStorage.removeItem("bearerToken");
-      },
-      setToken: (tk) => {
-        set({ bearerToken: tk });
-      },
-    }),
-    {
-      name: "bearer_token",
-      storage: createJSONStorage(() => localStorage),
-      onRehydrateStorage: (state, error) => {
-        if (error) {
-          console.log("No se pudo trar el token", error);
-        } else if (state) {
-          console.log("Se pudo obtener el token", state);
-        }
-      },
-    }
-  )
-);
 
 // trae todos los post de la api
 

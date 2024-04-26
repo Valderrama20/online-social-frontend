@@ -1,15 +1,16 @@
 import { useEffect } from "react";
 import { engranaje } from "../asset/icons";
-import { user } from "../generalVarianbles";
 import Card from "./CardOfPublication";
-import { getPosts } from "../globalState";
+import { getPosts, user } from "../globalState";
 import NewPost from "./NewPost";
 
 function PostsWall() {
   let { loadData } = getPosts();
+  let { data } = user();
 
   useEffect(() => {
     loadData();
+    console.log(data);
   }, []);
 
   return (

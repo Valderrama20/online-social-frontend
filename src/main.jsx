@@ -4,7 +4,7 @@ import "./styles.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import LoginAndRegister from "./pages/LoginAndRegister.jsx";
-import Button from "./pages/pruebaBottom.jsx";
+import ProfileUser from "./pages/ProfileUser.jsx";
 
 const router = createBrowserRouter([
   {
@@ -12,16 +12,12 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/profile/:name",
-    element: <div>User Profile</div>,
-  },
-  {
     path: "/login",
     element: <LoginAndRegister />,
   },
   {
-    path: "/button",
-    element: <Button />,
+    path: "/profile",
+    element: <ProfileUser />,
   },
 ]);
 
