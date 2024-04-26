@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CreateUserModal from "../components/login/CreateUserModal";
 import LoginModal from "../components/login/LoginModal";
+import { x } from "../asset/icons";
 
 export default function LoginAndRegister() {
   const [modalRegister, setModalRegister] = useState(false);
@@ -15,7 +16,9 @@ export default function LoginAndRegister() {
   };
   return (
     <div className=" grid grid-cols-2 text-white">
-      <div className="">jose</div>
+      <div className="w-full h-full ">
+        <div className="my-[170px] mx-auto  max-w-[280px]">{x}</div>
+      </div>
       <div className="">
         <h1 className="font-bold text-6xl leading-snug ">
           Lo que está <br /> pasando ahora
