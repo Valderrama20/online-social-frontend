@@ -4,7 +4,7 @@ import Trending from "./smallComponenst/Trending";
 
 export default function SearchInfo() {
   return (
-    <div className="min-w-96 h-full mx-8 text-[#e8eaeb]">
+    <div className="min-w-96 h-full mx-8 text-[rgb(232,234,235)]">
       <div className=" mx-auto">
         <div className=" flex items-center px-5 py-2 my-3 bg-[#1f2226] rounded-full space-x-3 ">
           {searchIcon}

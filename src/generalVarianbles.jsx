@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
   HomeIcon,
   ExploreIcon,
@@ -124,3 +125,12 @@ export const trendingTopics = [
     category: ["Politics", "Trending"],
   },
 ];
+
+export let methods = {
+  get: "get",
+  post: "post",
+  put: "put",
+  delete: "delete",
+};
+
+// eliminar luego se solucinar lo de

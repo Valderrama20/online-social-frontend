@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import "./styles.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home.jsx";
+import LoginAndRegister from "./pages/LoginAndRegister.jsx";
+import ProfileUser from "./pages/UserProfile.jsx";
 
 const router = createBrowserRouter([
   {
@@ -10,12 +12,12 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/profile/:name",
-    element: <div>User Profile</div>,
+    path: "/login",
+    element: <LoginAndRegister />,
   },
   {
-    path: "/login",
-    element: <div>Login</div>,
+    path: "/profile",
+    element: <ProfileUser />,
   },
 ]);
 
