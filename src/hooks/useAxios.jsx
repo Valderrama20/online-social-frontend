@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { user } from "../globalState";
 
-export default function useAxios() {
+export default function useAxios(contentType = "application/json") {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -13,7 +13,7 @@ export default function useAxios() {
     baseURL: "https://online-back-6i1s.onrender.com",
     headers: {
       Authorization: `Bearer ${data2.accessToken || null}`,
-      "Content-Type": "application/json",
+      "Content-Type": contentType ,
     },
   });
 
