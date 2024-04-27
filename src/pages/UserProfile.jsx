@@ -1,16 +1,29 @@
+import { useEffect } from "react";
+import { methods } from "../generalVarianbles";
 import { user } from "../globalState";
+import useAxios from "../hooks/useAxios";
+import { useState } from "react";
+
 
 export default function ProfileUser() {
-  let { data } = user();
+  let [posts, setPosts] = useState()
+  let { data: data2 } = user();
 
-  if (!data.user._id)
-    return (
-      <div className="text-white">tienes que loguearte o crear un usuario</div>
-    );
+  let {data,fetchData} = useAxios()
+
+  useEffect(() => {
+    fetchData(methods.get,"/api/v1/post")
+  },[])
+
+  useEffect(() => {
+    setPosts(data.filter((e) => e._id == data2.user._id  ))
+  },[data])
+
+  
 
   return (
     <div>
-      <pre className="text-white">{JSON.stringify(data, null, 2)}</pre>
+      <pre className="text-white">{JSON.stringify(data2, null, 2)}</pre>
       <div class="relative bg-red-50">
         <input
           type="text"
@@ -23,6 +36,11 @@ export default function ProfileUser() {
         >
           Texto de ejemplo
         </span>
+        <div>
+      <pre className="">{JSON.stringify(posts, null, 2)}</pre>
+
+        </div>
+        
       </div>
     </div>
   );

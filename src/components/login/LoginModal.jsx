@@ -4,6 +4,7 @@ import { user } from "../../globalState";
 import useAxios from "../../hooks/useAxios";
 import { methods } from "../../generalVarianbles";
 import { useEffect } from "react";
+import { close, x } from "../../asset/icons";
 
 export default function LoginModal({ changeState }) {
   let [userLogin, setUserLogin] = useState({ email: "", password: "" });
@@ -39,39 +40,41 @@ export default function LoginModal({ changeState }) {
 
   return (
     <div className="fixed flex h-screen w-screen ">
-      <div className=" m-auto bg-black flex flex-col rounded-3xl p-4 z-50">
-        <div className="text-xl font-semibold">
-          <button onClick={changeState}>X</button>
-          <img src="" alt="" />
+      <div className=" m-auto bg-black flex flex-col rounded-2xl p-4 z-50">
+        <div className="text-xl font-semibold flex mb-7">
+          <button onClick={changeState}>{close}</button>
+          <div className="h-6 w-6 ml-[42%]">
+            {x}
+          </div>
         </div>
         {loading ? (
           <h1>cargando</h1>
         ) : seccion === 1 ? (
-          <div className="flex flex-col w-[270px] mx-32 space-y-6">
-            <h2 className="font-bold text-3xl">Inicia sesion en X</h2>
+          <div className="flex flex-col w-[270px] mx-32 ">
+            <h2 className="font-bold text-3xl mb-8">Inicia sesion en X</h2>
+            <span className="bg-white rounded-full h-8 mb-6"></span>
             <span className="bg-white rounded-full h-8 "></span>
-            <span className="bg-white rounded-full h-8 "></span>
-            <div className="flex items-center">
-              <div className=" bg-gray-600 h-px w-full"></div>
-              <span className="mx-2">O</span>
-              <div className=" bg-gray-600 h-px w-full"></div>
+            <div className="flex items-center my-3">
+              <div className=" bgGray h-px w-full"></div>
+              <span className="mx-1.5">o</span>
+              <div className=" bgGray h-px w-full"></div>
             </div>
             <div className="">
               <input
                 placeholder="Correo"
                 name="email"
                 value={userLogin.email}
-                className="w-full bg-transparent border p-2 rounded-md"
+                className="w-full bg-transparent border borderColor p-2 h-14 rounded-md mb-6"
                 onChange={changeInput}
               />
             </div>
             <button
-              className=" bg-white rounded-full text-black font-semibold py-1"
+              className=" bg-white rounded-full text-black font-semibold py-2 mb-6"
               onClick={nextSeccion}
             >
               Siguiente
             </button>
-            <button className="border rounded-full py-1 font-semibold">
+            <button className="border borderColor rounded-full py-2 font-semibold mb-10">
               Olvidaste tu contraseña?
             </button>
             <p>
