@@ -50,7 +50,7 @@ export default function LoginModal({ changeState }) {
         {loading ? (
           <h1>cargando</h1>
         ) : seccion === 1 ? (
-          <div className="flex flex-col w-[270px] mx-32 ">
+          <div className="flex flex-col w-[290px] mx-32 ">
             <h2 className="font-bold text-3xl mb-8">Inicia sesion en X</h2>
             <span className="bg-white rounded-full h-8 mb-6"></span>
             <span className="bg-white rounded-full h-8 "></span>
@@ -77,10 +77,10 @@ export default function LoginModal({ changeState }) {
             <button className="border borderColor rounded-full py-2 font-semibold mb-10">
               Olvidaste tu contraseña?
             </button>
-            <p>
-              No tienes cuenta?{" "}
+            <p className="textGray">
+            ¿No tienes una cuenta?{" "}
               <span
-                className="text-sky-500 cursor-pointer"
+                className="cursor-pointer"
                 onClick={() => changeState("change")}
               >
                 Registrate
@@ -102,7 +102,7 @@ export default function LoginModal({ changeState }) {
               placeholder="Contraseña"
               onChange={changeInput}
             />
-            <span className="text-sky-500 mb-16">Olvidaste tu contraseña</span>
+            <span className=" mb-16">Olvidaste tu contraseña</span>
 
             <button
               className="bg-white text-black font-semibold rounded-full py-2"

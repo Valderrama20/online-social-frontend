@@ -56,7 +56,7 @@ export default function CreateUserModal({ changeState }) {
             type="email"
             name="email"
             value={userInfo.email}
-            className=" bg-transparent border h-14 borderColor rounded-md p-2"
+            className=" bg-transparent border h-14 borderColor rounded-md p-2 focus:outline-none focus:ring-1 focus:ring-sky-500"
             onChange={changeInput}
             placeholder="Gmail"
             required
@@ -65,7 +65,7 @@ export default function CreateUserModal({ changeState }) {
             type="password"
             name="password"
             value={userInfo.password}
-            className=" bg-transparent border h-14 borderColor rounded-md p-2"
+            className=" bg-transparent border h-14 borderColor rounded-md p-2 focus:outline-none focus:ring-1 focus:ring-sky-500"
             onChange={changeInput}
             placeholder="Contraseña"
             required
@@ -82,7 +82,7 @@ export default function CreateUserModal({ changeState }) {
             name="age"
             placeholder="Edad"
             value={userInfo.age}
-            className=" bg-transparent border h-14 borderColor rounded-md p-2"
+            className="bg-transparent border h-14 borderColor rounded-md p-2 focus:outline-none focus:ring-1 focus:ring-sky-500 "
             onChange={changeInput}
           />
           <input
