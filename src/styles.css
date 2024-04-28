@@ -28,9 +28,17 @@ body {
         /* Opacidad del placeholder */
     }
 
-    .btn-color {
-        @apply bg-sky-600
+    .textGray {
+        @apply text-[#656a6e]
     }
 
 
+    span {
+        @apply text-sky-500
+    }
+
+
+    .btn-color {
+        @apply bg-[#1d9bf0]
+    }
 }
