@@ -40,17 +40,15 @@ export default function LoginModal({ changeState }) {
 
   return (
     <div className="fixed flex h-screen w-screen ">
-      <div className=" m-auto bg-black flex flex-col rounded-2xl p-4 z-50">
+      <div className=" w-full sm:w-[500px] sm:m-auto bg-black flex flex-col rounded-2xl p-4 z-50">
         <div className="text-xl font-semibold flex mb-7">
           <button onClick={changeState}>{close}</button>
-          <div className="h-6 w-6 ml-[42%]">
-            {x}
-          </div>
+          <div className="h-8 w-8 ml-[42%]">{x}</div>
         </div>
         {loading ? (
           <h1>cargando</h1>
         ) : seccion === 1 ? (
-          <div className="flex flex-col w-[290px] mx-32 ">
+          <div className="flex flex-col w-full max-w-[290px] sm:w-[600px] m-auto ">
             <h2 className="font-bold text-3xl mb-8">Inicia sesion en X</h2>
             <span className="bg-white rounded-full h-8 mb-6"></span>
             <span className="bg-white rounded-full h-8 "></span>
@@ -78,7 +76,7 @@ export default function LoginModal({ changeState }) {
               Olvidaste tu contraseña?
             </button>
             <p className="textGray">
-            ¿No tienes una cuenta?{" "}
+              ¿No tienes una cuenta?{" "}
               <span
                 className="cursor-pointer"
                 onClick={() => changeState("change")}
@@ -88,24 +86,24 @@ export default function LoginModal({ changeState }) {
             </p>
           </div>
         ) : (
-          <div className=" flex flex-col w-[360px] mx-20">
+          <div className=" flex flex-col px-8 sm:w-[360px] h-full sm:m-auto">
             <h2 className="font-bold text-2xl mb-8">Introduce tu contraseña</h2>
-            <div className="flex flex-col mb-5 text-gray-600">
-              <span>Correo electronico</span>
-              <span>{userLogin.email}</span>
+            <div className="flex flex-col mb-5">
+              <span className=" text-gray-600">Correo electronico</span>
+              <span className=" text-gray-600">{userLogin.email}</span>
             </div>
             <input
               type="text"
               name="password"
               value={userLogin.password}
-              className="bg-transparent p-2 border border-gray-700"
+              className="bg-transparent p-2  h-14 border border-gray-700"
               placeholder="Contraseña"
               onChange={changeInput}
             />
-            <span className=" mb-16">Olvidaste tu contraseña</span>
-
+            <span className=" mb-16">¿Olvidaste tu contraseña?</span>
+            <div className="flex-1"></div>
             <button
-              className="bg-white text-black font-semibold rounded-full py-2"
+              className="  bg-white text-black font-semibold rounded-full py-3"
               onClick={login}
             >
               Iniciar Sesion
