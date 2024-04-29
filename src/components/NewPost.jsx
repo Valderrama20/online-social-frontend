@@ -6,41 +6,35 @@ import {
   scheduleIcon,
   locationIcon,
 } from "../asset/icons";
-import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRef } from "react";
 import { user } from "../globalState";
+import useAxios from "../hooks/useAxios";
+import { methods } from "../generalVarianbles";
 
 export default function NewPost() {
   const [loading, setLoading] = useState(false);
   const [image, setImage] = useState(false);
   const [textarea, setTextarea] = useState("");
+  const { data: dataApi, error, fetchData } = useAxios("ultipart/form-data");
 
-  let { setUser, data } = user();
+  let { data } = user();
 
-  const imageUpload = async (e) => {
-    const file = e.target.files[0];
-
-    if (file) {
-      setLoading(true);
-
-      try {
-        // Subir la imagen a Cloudinary
-        const formData = new FormData();
-        formData.append("file", file);
-        formData.append("upload_preset", "online2");
-        const res = await axios.post(
-          "https://api.cloudinary.com/v1_1/divbgt0ah/image/upload",
-          formData
-        );
-        // Actualizar el estado con la URL de la imagen
-        setImage(res.data.url);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error al subir la imagen:", error);
-        setLoading(false);
-      }
+  useEffect(() => {
+    if (data) {
+      setImage(dataApi?.url);
     }
+  }, [dataApi]);
+
+  let imageUpload = async (e) => {
+    let file = e.target.files[0];
+
+    console.log(file);
+
+    const formData = new FormData();
+    formData.append("file", file);
+    console.log(formData);
+    await fetchData(methods.post, "/api/v1/cloudinary/upload", formData);
   };
 
   // referencia para que cuando le des click a otro elemento sea el click al input file
@@ -69,17 +63,6 @@ export default function NewPost() {
       likes: 0,
       userId: user._id,
     });
-    // try {
-    //   await axios.post("https://online-back-6i1s.onrender.com/api/v1/post", {
-    //   title: "none",
-    //   img: image,
-    //   content: textarea,
-    //   likes: 0,
-    //   userId: user._id,
-    // });
-    // } catch (error) {
-    //   console.log("no se pudo enviar el post",error)
-    // }
   };
 
   return (

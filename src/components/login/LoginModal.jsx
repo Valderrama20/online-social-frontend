@@ -50,11 +50,11 @@ export default function LoginModal({ changeState }) {
         ) : seccion === 1 ? (
           <div className="flex flex-col w-full max-w-[290px] sm:w-[600px] m-auto ">
             <h2 className="font-bold text-3xl mb-8">Inicia sesion en X</h2>
-            <span className="bg-white rounded-full h-8 mb-6"></span>
-            <span className="bg-white rounded-full h-8 "></span>
+            <span className="bg-white rounded-full h-9 mb-6"></span>
+            <span className="bg-white rounded-full h-9 "></span>
             <div className="flex items-center my-3">
               <div className=" bgGray h-px w-full"></div>
-              <span className="mx-1.5">o</span>
+              <span className="mx-1.5 text-white">o</span>
               <div className=" bgGray h-px w-full"></div>
             </div>
             <div className="">
