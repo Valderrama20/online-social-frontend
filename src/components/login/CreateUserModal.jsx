@@ -31,17 +31,17 @@ export default function CreateUserModal({ changeState }) {
   };
 
   return (
-    <div className="fixed flex flex-col h-screen w-screen ">
+    <div className="fixed flex h-screen w-screen ">
       <form
         onSubmit={createUser}
-        className=" rounded-2xl m-auto text-white p-3 z-50 bg-black "
+        className=" rounded-2xl w-full sm:w-auto sm:m-auto text-white p-3 z-50 bg-black "
       >
         <div className="flex items-center mb-7">
           <button onClick={() => changeState("register")}>{close}</button>
           <div className="h-7 w-7 ml-[43%] ">{x}</div>
         </div>
 
-        <div className="flex flex-col space-y-2 px-16">
+        <div className="flex flex-col space-y-2 px-5 sm:px-16 ">
           <h2 className="text-3xl font-bold font-sans mb-5">Crea tu cuenta</h2>
           <input
             type="text"
@@ -72,7 +72,7 @@ export default function CreateUserModal({ changeState }) {
           />
           <div className=" space-y-1">
             <span className=" font-bold ">Edad </span>
-            <p className="text-sm text-[#71767B] font-semibold leading-4 w-96">
+            <p className="text-sm text-[#71767B] font-semibold leading-4 max-w-96">
               Esta información no será pública. Confirma tu propia edad, incluso
               si esta cuenta es para una empresa, una mascota u otra cosa.
             </p>
@@ -87,11 +87,11 @@ export default function CreateUserModal({ changeState }) {
           />
           <input
             type="submit"
-            className="bg-white text-black font-bold text-lg h-14 rounded-full cursor-pointer"
+            className="bg-white  text-black font-bold text-lg h-14 rounded-full cursor-pointer "
           />
         </div>
       </form>
-      <div className="fixed inset-0 bg-[rgb(85,102,125)] opacity-40 z-40"></div>
+      <div className="fixed inset-0  bg-[rgb(85,102,125)] opacity-40 z-40"></div>
     </div>
   );
 }
