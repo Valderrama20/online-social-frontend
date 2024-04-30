@@ -1,17 +1,27 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { engranaje } from "../asset/icons";
 import Card from "./CardOfPublication";
 import { getPosts, user } from "../globalState";
 import NewPost from "./NewPost";
 
 function PostsWall() {
-  let { loadData } = getPosts();
+  let [posts, setPosts] = useState([]);
+  let { loadData, postsArr } = getPosts();
   let { data } = user();
 
   useEffect(() => {
     loadData();
-    console.log(data);
   }, []);
+
+  useEffect(() => {
+    if (postsArr.length) {
+      setPosts(postsArr);
+    }
+  }, [postsArr]);
+
+  let postAdd = (e) => {
+    setPosts([e, ...posts]);
+  };
 
   return (
     <div className=" w-full  border-x borderColor">
@@ -23,10 +33,13 @@ function PostsWall() {
           </div>
           <div className=" text-white">{engranaje}</div>
         </div>
-        <NewPost />
+        <NewPost postAdd={postAdd} />
       </div>
       <div>
-        <Card />
+        {posts.length &&
+          posts.map((e) => {
+            return <Card publication={e} key={e._id} />;
+          })}
       </div>
     </div>
   );

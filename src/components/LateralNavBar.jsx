@@ -3,7 +3,7 @@ import { links, user } from "../generalVarianbles";
 
 function LateralNavBar() {
   return (
-    <div className=" sticky top-0 h-screen p-2 bg-black space-y-4  hidden sm:flex flex-col w-5/12 items-center">
+    <div className=" sticky top-0 h-screen p-2 bg-black space-y-4  hidden sm:flex flex-col w-5/12  items-center">
       <div className=" space-y-5">
         {links.map((e) => {
           return (
