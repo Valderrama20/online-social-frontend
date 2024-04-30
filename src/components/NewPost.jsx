@@ -12,28 +12,30 @@ import { user } from "../globalState";
 import useAxios from "../hooks/useAxios";
 import { methods } from "../generalVarianbles";
 
-export default function NewPost() {
+export default function NewPost({ postAdd }) {
   const [loading, setLoading] = useState(false);
   const [image, setImage] = useState(false);
   const [textarea, setTextarea] = useState("");
   const { data: dataApi, error, fetchData } = useAxios("ultipart/form-data");
+  const { data: dataApi2, error: error2, fetchData: fetchData2 } = useAxios();
 
   let { data } = user();
 
   useEffect(() => {
-    if (data) {
-      setImage(dataApi?.url);
-    }
+    console.log(dataApi);
+    if (dataApi) setImage(dataApi?.url);
   }, [dataApi]);
+
+  useEffect(() => {
+    if (dataApi2) console.log(dataApi2);
+  }, [dataApi2]);
 
   let imageUpload = async (e) => {
     let file = e.target.files[0];
 
-    console.log(file);
-
     const formData = new FormData();
     formData.append("file", file);
-    console.log(formData);
+
     await fetchData(methods.post, "/api/v1/cloudinary/upload", formData);
   };
 
@@ -41,28 +43,21 @@ export default function NewPost() {
 
   const fileInputRef = useRef(null);
 
-  const falseClickInInput = () => {
-    fileInputRef.current.click();
-  };
+  const falseClickInInput = () => fileInputRef.current.click();
 
-  //
-
-  let changeTextarea = (e) => {
-    setTextarea(e.target.value);
-  };
+  const changeTextarea = (e) => setTextarea(e.target.value);
 
   let createPost = async () => {
-    if (!data._id) {
-      alert("Tienes que iniciar sesion para crear una publicacion");
-      return;
-    }
-    console.log({
-      title: "none",
-      img: image,
+    let post = {
+      title: "string", // no necesario
       content: textarea,
       likes: 0,
-      userId: user._id,
-    });
+      userId: data.user._id,
+      // img: url,
+    };
+
+    await fetchData2(methods.post, "/api/v1/post", post);
+    postAdd(post);
   };
 
   return (

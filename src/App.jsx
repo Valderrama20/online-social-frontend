@@ -4,7 +4,6 @@ import {
   Route,
   Router,
   Routes,
-  useNavigate,
 } from "react-router-dom";
 import Home from "./pages/Home";
 import LoginAndRegister from "./pages/LoginAndRegister";
