@@ -12,6 +12,7 @@ export const user = create(
     (set, get) => ({
       data: {},
       clearUser: () => {
+        console.log("usuario eliminada");
         set({ user: {} });
         localStorage.removeItem("user-logged-in");
       },
