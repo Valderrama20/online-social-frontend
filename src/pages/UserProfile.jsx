@@ -15,7 +15,7 @@ export default function ProfileUser() {
   }, []);
 
   useEffect(() => {
-    setPosts(data?.filter((e) => e._id !== data2.user._id));
+    setPosts(data?.filter((e) => e.userId?._id === data2.user._id));
   }, [data]);
 
   if (!data2.user) return <div>tienes que loguearte</div>;

@@ -16,19 +16,15 @@ export default function NewPost({ postAdd }) {
   const [loading, setLoading] = useState(false);
   const [image, setImage] = useState(false);
   const [textarea, setTextarea] = useState("");
-  const { data: dataApi, error, fetchData } = useAxios("ultipart/form-data");
+  const { data: dataApi, error, fetchData } = useAxios("multipart/form-data");
   const { data: dataApi2, error: error2, fetchData: fetchData2 } = useAxios();
 
   let { data } = user();
 
   useEffect(() => {
-    console.log(dataApi);
     if (dataApi) setImage(dataApi?.url);
+    console.log(dataApi);
   }, [dataApi]);
-
-  useEffect(() => {
-    if (dataApi2) console.log(dataApi2);
-  }, [dataApi2]);
 
   let imageUpload = async (e) => {
     let file = e.target.files[0];
@@ -64,7 +60,7 @@ export default function NewPost({ postAdd }) {
     <div className=" flex py-3 border-b borderColor">
       <div>
         <img
-          src={`https://ui-avatars.com/api?name=${user.fullName}&background=0D8ABC&color=fff`}
+          src={`https://ui-avatars.com/api?name=${data.user.fullName}&background=0D8ABC&color=fff`}
           alt=""
           className=" rounded-full w-10 mx-2"
         />
