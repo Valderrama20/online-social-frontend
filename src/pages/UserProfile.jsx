@@ -6,7 +6,9 @@ import { useState } from "react";
 import LateralNavBar from "../components/LateralNavBar";
 import SearchInfo from "../components/SearchInfo";
 import UserImg from "../components/smallComponenst/UserImg";
-import { back } from "../asset/icons";
+import { back, calendar } from "../asset/icons";
+import Card from "../components/CardOfPublication";
+import { formatearFecha } from "../utils/funciones";
 
 export default function ProfileUser() {
   let [posts, setPosts] = useState([]);
@@ -26,13 +28,13 @@ export default function ProfileUser() {
   // <pre className="text-white">{JSON.stringify(data2, null, 2)}</pre>
 
   // <pre className=" text-white">{JSON.stringify(posts, null, 2)}</pre>
-  console.log(data2);
+  console.log(posts);
 
   return (
     <div className="flex ">
       <LateralNavBar />
-      <div className="w-full bg-black border-x borderColor">
-        <div className="flex items-center">
+      <div className="w-full bg-black border-x borderColor  ">
+        <div className="flex items-center  bg-black ">
           <div className=" w-6 text-white mx-4">{back}</div>
 
           <div className="ml-4">
@@ -44,7 +46,7 @@ export default function ProfileUser() {
           </div>
         </div>
         <div>
-          <div className="h-52 bg-slate-600"></div>
+          <div className="h-52 bgGray"></div>
           <div className="-mt-16 ml-5 border-4 border-black absolute rounded-full">
             {<UserImg user={data2.user.fullName} h={"h-36"} />}
           </div>
@@ -61,6 +63,48 @@ export default function ProfileUser() {
             </span>
             <br />
             <span className="textGray">@{data2.user.fullName}</span>
+            <div className="flex items-center textGray my-3 space-x-1">
+              <div className="h-5 w-5 ">{calendar}</div>
+              <span>{formatearFecha(data2.user.createdAt)}</span>
+            </div>
+            <div className="flex space-x-3 textGray">
+              <div>
+                <span className="text-white">8 </span>
+                <span>Following</span>
+              </div>
+              <div>
+                <span className="text-white ">167 </span>
+                <span>Followers</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="w-full">
+          <div className=" flex justify-around pb-4 textGray border-b borderColor font-semibold ">
+            <span className="hover:text-white transition- cursor-pointer">
+              Post
+            </span>
+            <span className="hover:text-white transition- cursor-pointer">
+              Replies
+            </span>
+            <span className="hover:text-white transition- cursor-pointer">
+              Highlight
+            </span>
+            <span className="hover:text-white transition- cursor-pointer">
+              Articles
+            </span>
+            <span className="hover:text-white transition- cursor-pointer">
+              Media
+            </span>
+            <span className="hover:text-white transition- cursor-pointer">
+              Likes
+            </span>
+          </div>
+          <div className="">
+            {posts?.length &&
+              posts.map((e) => {
+                return <Card key={e._id} publication={e} />;
+              })}
           </div>
         </div>
       </div>
