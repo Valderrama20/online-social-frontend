@@ -9,6 +9,7 @@ import UserImg from "../components/smallComponenst/UserImg";
 import { back, calendar } from "../asset/icons";
 import Card from "../components/CardOfPublication";
 import { formatearFecha } from "../utils/funciones";
+import { Link } from "react-router-dom";
 
 export default function ProfileUser() {
   let [posts, setPosts] = useState([]);
@@ -35,7 +36,9 @@ export default function ProfileUser() {
       <LateralNavBar />
       <div className="w-full bg-black border-x borderColor  ">
         <div className="flex items-center  bg-black ">
-          <div className=" w-6 text-white mx-4">{back}</div>
+          <Link to="/" className=" w-6 text-white mx-4">
+            {back}
+          </Link>
 
           <div className="ml-4">
             <span className="text-white font-bold text-xl">

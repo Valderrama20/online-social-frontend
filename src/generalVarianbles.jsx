@@ -15,6 +15,7 @@ export const links = [
     id: "homeIcon",
     icon: HomeIcon,
     label: "Home",
+    ruta: "/",
   },
   {
     id: "exploreIcon",
@@ -40,6 +41,7 @@ export const links = [
     id: "profileIcon",
     icon: ProfileIcon,
     label: "Profile",
+    ruta: "/profile",
   },
   {
     id: "moreIcon",
@@ -132,5 +134,3 @@ export let methods = {
   put: "put",
   delete: "delete",
 };
-
-// eliminar luego se solucinar lo de
