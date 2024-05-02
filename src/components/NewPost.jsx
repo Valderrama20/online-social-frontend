@@ -49,7 +49,7 @@ export default function NewPost({ postAdd }) {
       content: textarea,
       likes: 0,
       userId: data.user._id,
-      // img: url,
+      imageUrl: image,
     };
 
     await fetchData2(methods.post, "/api/v1/post", post);
@@ -75,7 +75,11 @@ export default function NewPost({ postAdd }) {
           {loading ? (
             <div>Cargando</div>
           ) : image ? (
-            <img src={image} alt="" className=" rounded-3xl mx-auto" />
+            <img
+              src={image}
+              alt=""
+              className=" rounded-3xl mx-auto max-h-[500px]"
+            />
           ) : null}
         </div>
         <div className=" flex items-center justify-between py-3 border-t borderColor">

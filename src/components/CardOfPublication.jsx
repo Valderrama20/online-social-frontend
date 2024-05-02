@@ -33,9 +33,9 @@ function Card({ publication }) {
         </div>
         <p className=" leading-tight text-[#d7d8d9]  ">{publication.content}</p>
         <img
-          // src={publication?Info.img}
+          src={publication?.imageUrl}
           alt=""
-          className=" max-h-50 w-full object-cover rounded-3xl border borderColor mt-3"
+          className=" max-h-[500px] w-full object-cover rounded-3xl border borderColor mt-3"
         />
         {/* text-[#71767a] */}
         <div className=" flex  ">
