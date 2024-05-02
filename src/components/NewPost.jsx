@@ -59,7 +59,7 @@ export default function NewPost({ postAdd }) {
 
   return (
     <div className=" flex py-3 border-b borderColor">
-      <div className="px-2">
+      <div className="pl-3 -mr-1 ">
         <UserImg w={"w-12"} />
       </div>
       <div className=" w-full mx-3 mt-1">
@@ -68,7 +68,7 @@ export default function NewPost({ postAdd }) {
           placeholder="What is happening?!"
           onChange={changeTextarea}
         ></textarea>
-        <div className="flex my-4">
+        <div className="flex my-2">
           {loading ? (
             <div>Cargando</div>
           ) : image ? (
@@ -79,7 +79,9 @@ export default function NewPost({ postAdd }) {
             />
           ) : null}
         </div>
-        <div className=" flex items-center justify-between py-3 border-t borderColor">
+        <div
+          className={`flex items-center justify-between ${image && "border-t"} py-3 borderColor`}
+        >
           <div className=" text-sky-400 flex space-x-4 cursor-pointer">
             <input
               type="file"
@@ -98,6 +100,7 @@ export default function NewPost({ postAdd }) {
           <button
             className=" text-white py-2 px-4 bg-sky-600 rounded-3xl font-semibold"
             onClick={createPost}
+            disabled={textarea.length || image ? false : true}
           >
             Post
           </button>

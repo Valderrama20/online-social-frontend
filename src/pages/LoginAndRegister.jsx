@@ -1,7 +1,7 @@
 import { useState } from "react";
-import CreateUserModal from "../components/login/CreateUserModal";
 import LoginModal from "../components/login/LoginModal";
-import { x } from "../asset/icons";
+import { apple, google, x } from "../asset/icons";
+import CreateUserModal from "../components/login/createUser/CreateUserModal";
 
 export default function LoginAndRegister() {
   const [modalRegister, setModalRegister] = useState(false);
@@ -27,8 +27,12 @@ export default function LoginAndRegister() {
           <h3 className=" font-bold text-3xl mt-10 mb-6">Únete Hoy</h3>
           <div className="w-[300px]">
             <div className=" space-y-2 my-2">
-              <div className=" bg-white rounded-full h-10"></div>
-              <div className=" bg-white rounded-full h-10"></div>
+              <div className=" bg-white rounded-full h-10 flex text-black items-center text-center font-semibold ">
+                {google} Registrarse con Google
+              </div>
+              <div className=" bg-white rounded-full h-10 flex text-black font-semibold items-center">
+                {apple} Registrarse con Apple
+              </div>
             </div>
             <div className="flex items-center">
               <div className=" bg-gray-600 h-px w-full"></div>
