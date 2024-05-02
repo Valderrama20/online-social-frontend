@@ -65,7 +65,7 @@ export default function ProfileUser() {
               {data2.user.fullName}
             </span>
             <br />
-            <span className="textGray">@{data2.user.fullName}</span>
+            <span className="textGray">@{data2.user.username}</span>
             <div className="flex items-center textGray my-3 space-x-1">
               <div className="h-5 w-5 ">{calendar}</div>
               <span>{formatearFecha(data2.user.createdAt)}</span>

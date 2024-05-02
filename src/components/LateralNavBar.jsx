@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { pluma, puntos, x } from "../asset/icons";
-import { links, user } from "../generalVarianbles";
+import { links } from "../generalVarianbles";
+import { user } from "../globalState";
 
 function LateralNavBar() {
+  let { data } = user();
   return (
     <div className=" sticky top-0 hidden sm:flex justify-end h-screen md:w-5/12 sm:w-2/12 ">
       <nav className=" p-2 bg-balack space-y-4 mx-4">
@@ -32,13 +34,15 @@ function LateralNavBar() {
 
         <div className="flex items-center space-x-4 ">
           <img
-            src={`https://ui-avatars.com/api?name=${user.name}&background=0D8ABC&color=fff`}
+            src={`https://ui-avatars.com/api?name=${data.user.fullName}&background=0D8ABC&color=fff`}
             alt={user.name}
             className=" rounded-full h-10"
           />
           <div className=" flex-col hidden lg:flex">
-            <span className=" text-white font-bold text-lg">{user.name}</span>
-            <span className=" text-slate-500">{user.user}</span>
+            <span className=" text-white font-bold text-lg">
+              {data.user.fullName}
+            </span>
+            <span className=" text-slate-500">@{data.user.username}</span>
           </div>
           <div className="w-7 hidden lg:flex">{puntos}</div>
         </div>

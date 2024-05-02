@@ -27,7 +27,7 @@ function Card({ publication }) {
           </span>
 
           <span className="text-[#5e6266] font-mono">
-            {publication?.userId?.fullName}·
+            @{publication?.userId?.username}·
             {calculateTime(publication.createdAt)}
           </span>
         </div>

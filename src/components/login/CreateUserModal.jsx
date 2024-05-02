@@ -30,6 +30,7 @@ export default function CreateUserModal({ changeState }) {
   const createUser = async (e) => {
     e.preventDefault();
     await fetchData(methods.post, "/api/v1/auth/register", userInfo);
+    console.log(userInfo);
   };
 
   let nextStep = () => {
