@@ -1,9 +1,13 @@
-export default function UserImg({ user, h }) {
+import { user } from "../../globalState";
+
+export default function UserImg({ w }) {
+  let { data } = user();
+
   return (
     <img
-      src={`https://ui-avatars.com/api?name=${user}&background=0D8ABC&color=fff`}
+      src={`https://ui-avatars.com/api?name=${data.user.fullName}&background=0D8ABC&color=fff&rounded=true`}
       alt={user}
-      className={` rounded-full ${h} `}
+      className={`${w} `}
     />
   );
 }

@@ -11,6 +11,7 @@ import { useRef } from "react";
 import { user } from "../globalState";
 import useAxios from "../hooks/useAxios";
 import { methods } from "../generalVarianbles";
+import UserImg from "./smallComponenst/UserImg";
 
 export default function NewPost({ postAdd }) {
   const [loading, setLoading] = useState(false);
@@ -58,12 +59,8 @@ export default function NewPost({ postAdd }) {
 
   return (
     <div className=" flex py-3 border-b borderColor">
-      <div>
-        <img
-          src={`https://ui-avatars.com/api?name=${data.user.fullName}&background=0D8ABC&color=fff`}
-          alt=""
-          className=" rounded-full w-10 mx-2"
-        />
+      <div className="px-2">
+        <UserImg w={"w-12"} />
       </div>
       <div className=" w-full mx-3 mt-1">
         <textarea

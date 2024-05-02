@@ -52,7 +52,7 @@ export default function ProfileUser() {
         <div>
           <div className="h-52 bgGray"></div>
           <div className="-mt-16 ml-5 border-4 border-black absolute rounded-full">
-            {<UserImg user={data2.user.fullName} h={"h-36"} />}
+            {<UserImg w={"h-36"} />}
           </div>
           <div className="flex h-16 w-full items-center justify-end">
             <button className="border text-white font-bold rounded-full px-4 py-1.5 mx-3">

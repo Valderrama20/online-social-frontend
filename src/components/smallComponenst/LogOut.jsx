@@ -1,7 +1,8 @@
+import { back, close } from "../../asset/icons";
 import { user } from "../../globalState";
 import { useNavigate } from "react-router-dom";
 
-export default function LogOut() {
+export default function LogOut({ changeStateLogOut }) {
   let { data, clearUser } = user();
   let navigation = useNavigate();
 
@@ -11,10 +12,11 @@ export default function LogOut() {
   };
 
   return (
-    <div className=" bg-red-300 px-4 py-4 boxshadow rounded-xl font-semibold ">
-      <div className=" cursor-pointer">
-        <button type="text">Cerrar sesion</button>
-        {` @${data.user.username}`}
+    <div className="bg-black p-2 boxshadow rounded-xl font-semibold w-[260px]">
+      <div onClick={changeStateLogOut}>{close}</div>
+
+      <div className=" cursor-pointer p-3" onClick={signOff}>
+        <button type="text">Cerrar sesion</button> {` @${data.user.username}`}
       </div>
     </div>
   );

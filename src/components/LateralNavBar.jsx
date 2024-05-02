@@ -3,9 +3,17 @@ import { pluma, puntos, x } from "../asset/icons";
 import { links } from "../generalVarianbles";
 import { user } from "../globalState";
 import LogOut from "./smallComponenst/LogOut";
+import { useState } from "react";
+import UserImg from "./smallComponenst/UserImg";
 
 function LateralNavBar() {
   let { data } = user();
+  let [mostrarLogOut, setMostrarLogOut] = useState(false);
+
+  let changeState = () => {
+    setMostrarLogOut(!mostrarLogOut);
+  };
+
   return (
     <div className=" sticky top-0 hidden sm:flex justify-end h-screen md:w-5/12 sm:w-2/12 z-40">
       <nav className=" p-2 bg-balack space-y-4 mx-4">
@@ -32,13 +40,9 @@ function LateralNavBar() {
             {pluma}
           </button>
         </div>
-        <div className="relative">
+        <div className="relative cursor-pointer" onClick={changeState}>
           <div className="flex items-center space-x-4  ">
-            <img
-              src={`https://ui-avatars.com/api?name=${data.user.fullName}&background=0D8ABC&color=fff`}
-              alt={user.name}
-              className=" rounded-full h-10"
-            />
+            <UserImg w={"w-10"} />
             <div className=" flex-col hidden lg:flex">
               <span className=" text-white font-bold text-lg">
                 {data.user.fullName}
@@ -47,9 +51,11 @@ function LateralNavBar() {
             </div>
             <div className="w-7 hidden lg:flex">{puntos}</div>
           </div>
-          <div className="absolute -top-24 left-2">
-            <LogOut />
-          </div>
+          {mostrarLogOut && (
+            <div className="absolute -top-20 left-2">
+              <LogOut changeStateLogOut={changeState} />
+            </div>
+          )}
         </div>
       </nav>
     </div>

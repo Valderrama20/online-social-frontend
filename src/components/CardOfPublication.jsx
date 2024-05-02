@@ -8,18 +8,12 @@ import {
 } from "../asset/icons";
 import { user } from "../globalState";
 import { calculateTime } from "../utils/funciones";
+import UserImg from "./smallComponenst/UserImg";
 
 function Card({ publication }) {
   return (
     <div className="flex w-full border-b-[0.2px] borderColor bg-black p-3">
-      <div>
-        <img
-          src={`https://ui-avatars.com/api?name=${publication?.userId?.fullName}&background=0D8ABC&color=fff`}
-          alt={publication?.userId?.fullName}
-          className=" rounded-full  w-12"
-        />
-      </div>
-
+      <div>{<UserImg w={"w-12"} />}</div>
       <div className=" w-full mx-2 -mt-1">
         <div className="flex  space-x-2 items-end ">
           <span className=" font-semibold text-lg text-white">
