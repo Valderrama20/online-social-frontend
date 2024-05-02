@@ -16,7 +16,7 @@ export default function LoginAndRegister() {
   };
   return (
     <div className="flex text-white  ">
-      <div className=" sm:flex sm:w-full mx-auto mx-[50px] ">
+      <div className=" sm:flex sm:w-full  m-auto ">
         <div className=" sm:w-5/12 mb-[50px]">
           <div className="mt-[100px] sm:mx-auto  w-12 sm:w-[70%]">{x}</div>
         </div>

@@ -3,6 +3,7 @@ import useAxios from "../hooks/useAxios";
 import { methods } from "../generalVarianbles";
 import { useEffect } from "react";
 import { user, getPosts } from "../globalState";
+import LogOut from "../components/smallComponenst/LogOut";
 
 export default function Pruebas() {
   let { clearUser, data: dataUser } = user();
@@ -48,8 +49,8 @@ export default function Pruebas() {
       {/* <button className="Text white bg-red-700" onClick={deleteUsers}>
         Eliminar todas los users
       </button> */}
-
-      <pre>{JSON.stringify(dataUser, null, 2)}</pre>
+      <LogOut />
+      {/* <pre>{JSON.stringify(dataUser, null, 2)}</pre> */}
     </>
   );
 }

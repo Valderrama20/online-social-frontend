@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 import { pluma, puntos, x } from "../asset/icons";
 import { links } from "../generalVarianbles";
 import { user } from "../globalState";
+import LogOut from "./smallComponenst/LogOut";
 
 function LateralNavBar() {
   let { data } = user();
   return (
-    <div className=" sticky top-0 hidden sm:flex justify-end h-screen md:w-5/12 sm:w-2/12 ">
+    <div className=" sticky top-0 hidden sm:flex justify-end h-screen md:w-5/12 sm:w-2/12 z-40">
       <nav className=" p-2 bg-balack space-y-4 mx-4">
         <div className="w-7 ">{x}</div>
         <div className=" space-y-5">
@@ -31,20 +32,24 @@ function LateralNavBar() {
             {pluma}
           </button>
         </div>
-
-        <div className="flex items-center space-x-4 ">
-          <img
-            src={`https://ui-avatars.com/api?name=${data.user.fullName}&background=0D8ABC&color=fff`}
-            alt={user.name}
-            className=" rounded-full h-10"
-          />
-          <div className=" flex-col hidden lg:flex">
-            <span className=" text-white font-bold text-lg">
-              {data.user.fullName}
-            </span>
-            <span className=" text-slate-500">@{data.user.username}</span>
+        <div className="relative">
+          <div className="flex items-center space-x-4  ">
+            <img
+              src={`https://ui-avatars.com/api?name=${data.user.fullName}&background=0D8ABC&color=fff`}
+              alt={user.name}
+              className=" rounded-full h-10"
+            />
+            <div className=" flex-col hidden lg:flex">
+              <span className=" text-white font-bold text-lg">
+                {data.user.fullName}
+              </span>
+              <span className=" text-slate-500">@{data.user.username}</span>
+            </div>
+            <div className="w-7 hidden lg:flex">{puntos}</div>
           </div>
-          <div className="w-7 hidden lg:flex">{puntos}</div>
+          <div className="absolute -top-24 left-2">
+            <LogOut />
+          </div>
         </div>
       </nav>
     </div>

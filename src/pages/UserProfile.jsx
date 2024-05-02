@@ -10,6 +10,7 @@ import { back, calendar } from "../asset/icons";
 import Card from "../components/CardOfPublication";
 import { formatearFecha } from "../utils/funciones";
 import { Link } from "react-router-dom";
+import Loading from "../components/smallComponenst/Loading";
 
 export default function ProfileUser() {
   let [posts, setPosts] = useState([]);
@@ -104,10 +105,15 @@ export default function ProfileUser() {
             </span>
           </div>
           <div className="">
-            {posts?.length &&
+            {posts?.length ? (
               posts.map((e) => {
                 return <Card key={e._id} publication={e} />;
-              })}
+              })
+            ) : (
+              <div className="w-full h-[200px] flex items-center justify-center">
+                <Loading />
+              </div>
+            )}
           </div>
         </div>
       </div>

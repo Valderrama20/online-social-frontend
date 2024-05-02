@@ -3,9 +3,9 @@ import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import useAxios from "./hooks/useAxios";
 
-// Llama usuario por id
 // elimina el usuario
-// guarda el usuario en el local storage
+// Guarda el token de acceso
+// y al usuario en el local storage
 
 export const user = create(
   persist(
@@ -33,8 +33,6 @@ export const user = create(
     }
   )
 );
-
-// token de acceso
 
 // trae todos los post de la api
 
