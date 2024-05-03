@@ -110,9 +110,7 @@ export default function ProfileUser() {
                 return <Card key={e._id} publication={e} />;
               })
             ) : (
-              <div className="w-full h-[200px] flex items-center justify-center">
-                <Loading />
-              </div>
+              <Loading />
             )}
           </div>
         </div>

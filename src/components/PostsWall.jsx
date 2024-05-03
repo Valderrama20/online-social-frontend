@@ -42,9 +42,7 @@ function PostsWall() {
             return <Card publication={e} key={e._id} />;
           })
         ) : (
-          <div className="w-full h-[200px] flex items-center justify-center">
-            <Loading />
-          </div>
+          <Loading />
         )}
       </div>
     </div>

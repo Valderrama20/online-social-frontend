@@ -1,5 +1,5 @@
 import { useState } from "react";
-import LoginModal from "../components/login/LoginModal";
+import LoginModal from "../components/login/loginModal/LoginModal";
 import { apple, google, x } from "../asset/icons";
 import CreateUserModal from "../components/login/createUser/CreateUserModal";
 
@@ -45,11 +45,13 @@ export default function LoginAndRegister() {
             >
               Crear cuenta
             </button>
-            <div className=" text-xs textGray leading-3">
-              Al registrarte, aceptas los <span>Términos de servicio</span> y la{" "}
-              <span>Política de privacidad</span>, incluida la política de{" "}
-              <span>Uso de Cookies</span>.
-            </div>
+            <p className=" text-xs textGray leading-3">
+              Al registrarte, aceptas los{" "}
+              <span className="text-sky-500">Términos de servicio</span> y la{" "}
+              <span className="text-sky-500">Política de privacidad</span>,
+              incluida la política de{" "}
+              <span className="text-sky-500">Uso de Cookies</span>.
+            </p>
             <div className="flex flex-col font-bold my-10 space-y-5">
               <span className=" text-white">¿Ya tienes una cuenta?</span>
               <button
