@@ -15,6 +15,7 @@ export const links = [
     id: "homeIcon",
     icon: HomeIcon,
     label: "Home",
+    ruta: "/",
   },
   {
     id: "exploreIcon",
@@ -40,6 +41,7 @@ export const links = [
     id: "profileIcon",
     icon: ProfileIcon,
     label: "Profile",
+    ruta: "/profile",
   },
   {
     id: "moreIcon",
@@ -47,21 +49,6 @@ export const links = [
     label: "More",
   },
 ];
-
-export let user = {
-  name: "Jose Garcia",
-  user: "Valderrama20",
-};
-
-export let publicationInfo = {
-  user: user,
-  text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut id vero ut. Debitis praesentium dolore rem eos! Perspiciatis cumque ullam ea explicabo adipisci ad voluptatum dolores aliquid, a, repudiandae magni.",
-  img: "https://www.qindel.com/wp-content/uploads/2022/05/beneficios-react-qindel.jpg",
-  messages: 20,
-  reposts: 10,
-  fevorites: 25,
-  views: 1346,
-};
 
 export const trendingTopics = [
   {
@@ -132,5 +119,3 @@ export let methods = {
   put: "put",
   delete: "delete",
 };
-
-// eliminar luego se solucinar lo de

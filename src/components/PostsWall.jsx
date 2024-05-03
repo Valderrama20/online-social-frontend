@@ -3,6 +3,7 @@ import { engranaje } from "../asset/icons";
 import Card from "./CardOfPublication";
 import { getPosts, user } from "../globalState";
 import NewPost from "./NewPost";
+import Loading from "./smallComponenst/Loading";
 
 function PostsWall() {
   let [posts, setPosts] = useState([]);
@@ -36,10 +37,13 @@ function PostsWall() {
         <NewPost postAdd={postAdd} />
       </div>
       <div>
-        {posts.length &&
+        {posts.length ? (
           posts.map((e) => {
             return <Card publication={e} key={e._id} />;
-          })}
+          })
+        ) : (
+          <Loading />
+        )}
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import CreateUserModal from "../components/login/CreateUserModal";
-import LoginModal from "../components/login/LoginModal";
-import { x } from "../asset/icons";
+import LoginModal from "../components/login/loginModal/LoginModal";
+import { apple, google, x } from "../asset/icons";
+import CreateUserModal from "../components/login/createUser/CreateUserModal";
 
 export default function LoginAndRegister() {
   const [modalRegister, setModalRegister] = useState(false);
@@ -16,7 +16,7 @@ export default function LoginAndRegister() {
   };
   return (
     <div className="flex text-white  ">
-      <div className=" sm:flex sm:w-full mx-auto mx-[50px] ">
+      <div className=" sm:flex sm:w-full  m-auto ">
         <div className=" sm:w-5/12 mb-[50px]">
           <div className="mt-[100px] sm:mx-auto  w-12 sm:w-[70%]">{x}</div>
         </div>
@@ -26,9 +26,13 @@ export default function LoginAndRegister() {
           </h1>
           <h3 className=" font-bold text-3xl mt-10 mb-6">Únete Hoy</h3>
           <div className="w-[300px]">
-            <div className=" space-y-2 my-2">
-              <div className=" bg-white rounded-full h-10"></div>
-              <div className=" bg-white rounded-full h-10"></div>
+            <div className=" space-y-2 my-2 text-black font-semibold cursor-not-allowed">
+              <div className=" bg-white rounded-full h-10 flex items-center justify-center">
+                {google} Registrarse con Google
+              </div>
+              <div className=" bg-white rounded-full h-10 flex  items-center justify-center">
+                {apple} Registrarse con Apple
+              </div>
             </div>
             <div className="flex items-center">
               <div className=" bg-gray-600 h-px w-full"></div>
@@ -41,11 +45,13 @@ export default function LoginAndRegister() {
             >
               Crear cuenta
             </button>
-            <div className=" text-xs textGray leading-3">
-              Al registrarte, aceptas los <span>Términos de servicio</span> y la{" "}
-              <span>Política de privacidad</span>, incluida la política de{" "}
-              <span>Uso de Cookies</span>.
-            </div>
+            <p className=" text-xs textGray leading-3">
+              Al registrarte, aceptas los{" "}
+              <span className="text-sky-500">Términos de servicio</span> y la{" "}
+              <span className="text-sky-500">Política de privacidad</span>,
+              incluida la política de{" "}
+              <span className="text-sky-500">Uso de Cookies</span>.
+            </p>
             <div className="flex flex-col font-bold my-10 space-y-5">
               <span className=" text-white">¿Ya tienes una cuenta?</span>
               <button

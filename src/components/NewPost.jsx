@@ -11,6 +11,7 @@ import { useRef } from "react";
 import { user } from "../globalState";
 import useAxios from "../hooks/useAxios";
 import { methods } from "../generalVarianbles";
+import UserImg from "./smallComponenst/UserImg";
 
 export default function NewPost({ postAdd }) {
   const [loading, setLoading] = useState(false);
@@ -49,7 +50,7 @@ export default function NewPost({ postAdd }) {
       content: textarea,
       likes: 0,
       userId: data.user._id,
-      // img: url,
+      imageUrl: image,
     };
 
     await fetchData2(methods.post, "/api/v1/post", post);
@@ -58,12 +59,8 @@ export default function NewPost({ postAdd }) {
 
   return (
     <div className=" flex py-3 border-b borderColor">
-      <div>
-        <img
-          src={`https://ui-avatars.com/api?name=${data.user.fullName}&background=0D8ABC&color=fff`}
-          alt=""
-          className=" rounded-full w-10 mx-2"
-        />
+      <div className="pl-3 -mr-1 ">
+        <UserImg w={"w-12"} />
       </div>
       <div className=" w-full mx-3 mt-1">
         <textarea
@@ -71,14 +68,20 @@ export default function NewPost({ postAdd }) {
           placeholder="What is happening?!"
           onChange={changeTextarea}
         ></textarea>
-        <div className="flex my-4">
+        <div className="flex my-2">
           {loading ? (
             <div>Cargando</div>
           ) : image ? (
-            <img src={image} alt="" className=" rounded-3xl mx-auto" />
+            <img
+              src={image}
+              alt=""
+              className=" rounded-3xl mx-auto max-h-[500px]"
+            />
           ) : null}
         </div>
-        <div className=" flex items-center justify-between py-3 border-t borderColor">
+        <div
+          className={`flex items-center justify-between ${image && "border-t"} py-3 borderColor`}
+        >
           <div className=" text-sky-400 flex space-x-4 cursor-pointer">
             <input
               type="file"
@@ -97,6 +100,7 @@ export default function NewPost({ postAdd }) {
           <button
             className=" text-white py-2 px-4 bg-sky-600 rounded-3xl font-semibold"
             onClick={createPost}
+            disabled={textarea.length || image ? false : true}
           >
             Post
           </button>
