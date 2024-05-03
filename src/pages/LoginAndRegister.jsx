@@ -26,11 +26,11 @@ export default function LoginAndRegister() {
           </h1>
           <h3 className=" font-bold text-3xl mt-10 mb-6">Únete Hoy</h3>
           <div className="w-[300px]">
-            <div className=" space-y-2 my-2">
-              <div className=" bg-white rounded-full h-10 flex text-black items-center text-center font-semibold ">
+            <div className=" space-y-2 my-2 text-black font-semibold cursor-not-allowed">
+              <div className=" bg-white rounded-full h-10 flex items-center justify-center">
                 {google} Registrarse con Google
               </div>
-              <div className=" bg-white rounded-full h-10 flex text-black font-semibold items-center">
+              <div className=" bg-white rounded-full h-10 flex  items-center justify-center">
                 {apple} Registrarse con Apple
               </div>
             </div>

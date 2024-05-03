@@ -4,12 +4,12 @@ import { user } from "../../globalState";
 import useAxios from "../../hooks/useAxios";
 import { methods } from "../../generalVarianbles";
 import { useEffect } from "react";
-import { close, x } from "../../asset/icons";
+import { apple, close, google, x } from "../../asset/icons";
+import Loading from "../smallComponenst/Loading";
 
 export default function LoginModal({ changeState }) {
   let [userLogin, setUserLogin] = useState({ email: "", password: "" });
   let [seccion, setSeccion] = useState(1);
-  let [loading, setLoading] = useState(false);
   const { data, error, isLoading, fetchData } = useAxios();
 
   let navigate = useNavigate();
@@ -20,7 +20,6 @@ export default function LoginModal({ changeState }) {
       set(data);
       navigate("/");
     } else if (error) {
-      setLoading(false);
       alert("your mail or password is bad");
       setSeccion(1);
     }
@@ -34,7 +33,6 @@ export default function LoginModal({ changeState }) {
   let nextSeccion = () => setSeccion(2);
 
   let login = async () => {
-    setLoading(true);
     await fetchData(methods.post, "/api/v1/auth/login", userLogin);
   };
 
@@ -45,13 +43,21 @@ export default function LoginModal({ changeState }) {
           <button onClick={changeState}>{close}</button>
           <div className="h-8 w-8 ml-[42%]">{x}</div>
         </div>
-        {loading ? (
-          <h1>cargando</h1>
+        {isLoading ? (
+          <div className="flex w-full h-[200px] justify-center items-center">
+            <Loading />
+          </div>
         ) : seccion === 1 ? (
           <div className="flex flex-col w-full max-w-[290px] sm:w-[600px] m-auto ">
             <h2 className="font-bold text-3xl mb-8">Inicia sesion en X</h2>
-            <span className="bg-white rounded-full h-9 mb-6"></span>
-            <span className="bg-white rounded-full h-9 "></span>
+            <div className=" space-y-4  text-black font-semibold cursor-not-allowed">
+              <div className=" bg-white rounded-full h-10 flex items-center justify-center">
+                {google} Registrarse con Google
+              </div>
+              <div className=" bg-white rounded-full h-10 flex  items-center justify-center">
+                {apple} Registrarse con Apple
+              </div>
+            </div>
             <div className="flex items-center my-3">
               <div className=" bgGray h-px w-full"></div>
               <span className="mx-1.5 text-white">o</span>
