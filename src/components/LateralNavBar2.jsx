@@ -43,7 +43,11 @@ export default function ({ isOpen, setIsOpen, user }) {
               {links.map((e) => {
                 console.log(e);
                 return (
-                  <Link to={e?.ruta} className=" flex space-x-6 " key={e.id}>
+                  <Link
+                    to={typeof e.ruta == "function" ? e.ruta() : e.ruta}
+                    className=" flex space-x-6 "
+                    key={e.id}
+                  >
                     {e.icon}
                     <span className=" text-lg font-bold flex cursor-pointer">
                       {e.label}

@@ -9,6 +9,7 @@ import {
   MoreIcon,
   img,
 } from "./asset/icons";
+import { user } from "./globalState";
 
 export const links = [
   {
@@ -41,7 +42,10 @@ export const links = [
     id: "profileIcon",
     icon: ProfileIcon,
     label: "Profile",
-    ruta: "/profile",
+    ruta: () => {
+      let { data } = user();
+      return `/profile/${data.user.username}/${data.user._id}`;
+    },
   },
   {
     id: "moreIcon",

@@ -24,9 +24,9 @@ export default function App() {
           path="/"
           element={isLogin() ? <Home /> : <Navigate to="/login" />}
         />
-        <Route path="login" element={<LoginAndRegister />} />
+        <Route path="/login" element={<LoginAndRegister />} />
         <Route
-          path="profile"
+          path="/profile/:user/:id"
           element={isLogin() ? <ProfileUser /> : <Navigate to="/login" />}
         />
         <Route path="/Pruebas" element={<Pruebas />} />

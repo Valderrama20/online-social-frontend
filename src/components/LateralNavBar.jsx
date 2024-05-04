@@ -20,8 +20,13 @@ function LateralNavBar() {
         <div className=" space-y-5">
           <div className="w-7 ">{x}</div>
           {links.map((e) => {
+            console.log(typeof e.ruta);
             return (
-              <Link to={e?.ruta} className=" flex space-x-4  " key={e.id}>
+              <Link
+                to={typeof e.ruta == "function" ? e.ruta() : e.ruta}
+                className=" flex space-x-4  "
+                key={e.id}
+              >
                 {e.icon}
                 <span className=" text-lg font hidden lg:flex cursor-pointer">
                   {e.label}
