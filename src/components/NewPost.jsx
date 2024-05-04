@@ -60,7 +60,7 @@ export default function NewPost({ postAdd }) {
   return (
     <div className=" flex py-3 border-b borderColor">
       <div className="pl-3 -mr-1 ">
-        <UserImg w={"w-12"} />
+        <UserImg w={"w-12"} user={data.user.fullName} />
       </div>
       <div className=" w-full mx-3 mt-1">
         <textarea
