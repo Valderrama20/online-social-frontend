@@ -58,17 +58,17 @@ export default function NewPost({ postAdd }) {
   };
 
   return (
-    <div className=" flex py-3 border-b borderColor">
-      <div className="pl-3 -mr-1 ">
-        <UserImg w={"w-12"} />
+    <div className=" hidden sm:flex pt-3 border-b borderColor">
+      <div className="pl-4 pt-2 -mr-1 ">
+        <UserImg w={"w-12"} user={data.user.fullName} />
       </div>
-      <div className=" w-full mx-3 mt-1">
+      <div className=" w-full mx-3 mt-3.5">
         <textarea
-          className=" w-full h-auto bg-black text-white text-xl placeholder-textarea "
+          className=" w-full h-auto bg-black text-xl placeholder-textarea "
           placeholder="What is happening?!"
           onChange={changeTextarea}
         ></textarea>
-        <div className="flex my-2">
+        <div className="flex ">
           {loading ? (
             <div>Cargando</div>
           ) : image ? (

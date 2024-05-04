@@ -9,11 +9,17 @@ import {
 import { user } from "../globalState";
 import { calculateTime } from "../utils/funciones";
 import UserImg from "./smallComponenst/UserImg";
+import { Link } from "react-router-dom";
 
 function Card({ publication }) {
   return (
     <div className="flex w-full border-b-[0.2px] borderColor bg-black p-3">
-      <div>{<UserImg w={"w-12"} />}</div>
+      <Link
+        to={`/profile/${publication?.userId?.username}/${publication?.userId?._id}`}
+      >
+        {<UserImg w={"w-12"} user={publication.userId.fullName} />}
+      </Link>
+
       <div className=" w-full mx-2 -mt-1">
         <div className="flex  space-x-2 items-end ">
           <span className=" font-semibold text-lg text-white">
@@ -29,7 +35,7 @@ function Card({ publication }) {
         <img
           src={publication?.imageUrl}
           alt=""
-          className=" max-h-[500px] w-full object-cover rounded-3xl border borderColor mt-3"
+          className=" max-h-[500px] w-full object-fit rounded-3xl border borderColor mt-3"
         />
         {/* text-[#71767a] */}
         <div className=" flex  ">
