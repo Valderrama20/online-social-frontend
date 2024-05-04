@@ -30,7 +30,31 @@ export default function ProfileUser() {
   // <pre className="text-white">{JSON.stringify(data2, null, 2)}</pre>
 
   // <pre className=" text-white">{JSON.stringify(posts, null, 2)}</pre>
-  console.log(posts);
+  let infoUser = (
+    <div>
+      <div className=" my-8 mx-4">
+        <span className="text-white font-bold text-2xl">
+          {data2.user.fullName}
+        </span>
+        <br />
+        <span className="textGray">@{data2.user.username}</span>
+        <div className="flex items-center textGray my-3 space-x-1">
+          <div className="h-5 w-5 ">{calendar}</div>
+          <span>{formatearFecha(data2.user.createdAt)}</span>
+        </div>
+        <div className="flex space-x-3 textGray">
+          <div>
+            <span className="text-white">8 </span>
+            <span>Following</span>
+          </div>
+          <div>
+            <span className="text-white ">167 </span>
+            <span>Followers</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <div className="flex ">
@@ -60,29 +84,7 @@ export default function ProfileUser() {
             </button>
           </div>
         </div>
-        <div>
-          <div className=" my-8 mx-4">
-            <span className="text-white font-bold text-2xl">
-              {data2.user.fullName}
-            </span>
-            <br />
-            <span className="textGray">@{data2.user.username}</span>
-            <div className="flex items-center textGray my-3 space-x-1">
-              <div className="h-5 w-5 ">{calendar}</div>
-              <span>{formatearFecha(data2.user.createdAt)}</span>
-            </div>
-            <div className="flex space-x-3 textGray">
-              <div>
-                <span className="text-white">8 </span>
-                <span>Following</span>
-              </div>
-              <div>
-                <span className="text-white ">167 </span>
-                <span>Followers</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        {infoUser}
         <div className="w-full">
           <div className=" flex justify-around pb-4 textGray border-b borderColor font-semibold ">
             <span className="hover:text-white transition- cursor-pointer">
