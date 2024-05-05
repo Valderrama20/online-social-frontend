@@ -32,7 +32,7 @@ function Card({ publication, deletePost }) {
   };
 
   return (
-    <div className="flex w-full border-b-[0.2px] borderColor bg-black p-3 scaleDownCenter">
+    <div className="flex w-full border-b-[0.2px] borderColor bg-black p-3 ">
       <Link to={`/profile/${username}/${_id}`}>
         {<UserImg w={"w-12"} user={fullName} />}
       </Link>
