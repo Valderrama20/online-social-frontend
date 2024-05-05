@@ -1,10 +1,11 @@
-import { calendar, close } from "../asset/icons";
+import { close } from "../asset/icons";
 import UserImg from "./smallComponenst/UserImg";
-
 import { links } from "../generalVarianbles";
 import { Link } from "react-router-dom";
 
 export default function ({ isOpen, setIsOpen, user }) {
+  let { fullName, username } = user;
+
   return (
     <div
       className={` h-full w-full fixed flex top-0 left-0 transition-transform transform ${
@@ -21,13 +22,11 @@ export default function ({ isOpen, setIsOpen, user }) {
 
         <div>
           <div className="mt-4 mx-4">
-            <UserImg w={"w-12"} user={user.fullName} />
+            <UserImg w={"w-12"} user={fullName} />
 
-            <span className="text-white font-bold text-2xl">
-              {user.fullName}
-            </span>
+            <span className="text-white font-bold text-2xl">{fullName}</span>
             <br />
-            <span className="textGray">@{user.username}</span>
+            <span className="textGray">@{username}</span>
 
             <div className="flex space-x-3 textGray mt-3">
               <div>

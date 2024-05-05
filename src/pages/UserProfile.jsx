@@ -11,34 +11,40 @@ import Card from "../components/CardOfPublication";
 import { formatearFecha } from "../utils/funciones";
 import { Link, useParams } from "react-router-dom";
 import Loading from "../components/smallComponenst/Loading";
+import EditProfile from "../components/smallComponenst/EditProfile";
 
 export default function ProfileUser() {
-  let [posts, setPosts] = useState([]);
-  let { data: data2 } = user();
+  const [posts, setPosts] = useState([]);
+  const [openEdit, setOpenEdit] = useState(false);
 
-  let { id } = useParams();
-
-  let { data, fetchData } = useAxios();
-  let { data: data3, isLoading, fetchData: fetchData3 } = useAxios();
+  const { _id } = user().data.user;
+  const { id } = useParams();
+  const { data, fetchData } = useAxios();
+  const { data: data3, fetchData: fetchData3 } = useAxios();
 
   useEffect(() => {
+    window.scroll(0, 0);
     fetchData(methods.get, "/api/v1/post");
-  }, []);
-
-  useEffect(() => {
     fetchData3(methods.get, `/api/v1/users/${id}`);
   }, []);
 
   useEffect(() => {
-    setPosts(data?.filter((e) => e.userId?._id === id));
+    setPosts(data?.filter((e) => e.userId?._id === id).reverse());
   }, [data]);
 
-  console.log(isLoading);
+  const isOpen = () => {
+    setOpenEdit(!openEdit);
+  };
+
+  const refreshUser = async () => {
+    await fetchData3(methods.get, `/api/v1/users/${id}`);
+    await fetchData(methods.get, "/api/v1/post");
+  };
 
   return (
     <div className="flex ">
       <LateralNavBar />
-      {isLoading ? (
+      {!data3?.fullName ? (
         <div className="w-full my-[200px]">
           <Loading />
         </div>
@@ -63,8 +69,11 @@ export default function ProfileUser() {
               {<UserImg w={"h-36"} user={data3?.fullName} />}
             </div>
             <div className="flex h-16 w-full items-center justify-end">
-              {data3?._id == data2.user._id && (
-                <button className="border text-white font-bold rounded-full px-4 py-1.5 mx-3">
+              {data3?._id == _id && (
+                <button
+                  onClick={isOpen}
+                  className="border text-white font-bold rounded-full px-4 py-1.5 mx-3"
+                >
                   Edit profile
                 </button>
               )}
@@ -115,18 +124,21 @@ export default function ProfileUser() {
               </span>
             </div>
             <div className="">
-              {posts?.length ? (
+              {!posts?.length ? (
+                <Loading />
+              ) : (
                 posts.map((e) => {
                   return <Card key={e._id} publication={e} />;
                 })
-              ) : (
-                <Loading />
               )}
             </div>
           </div>
         </div>
       )}
       <SearchInfo />
+      {openEdit && (
+        <EditProfile user={data3} isOpen={isOpen} refreshUser={refreshUser} />
+      )}
     </div>
   );
 }

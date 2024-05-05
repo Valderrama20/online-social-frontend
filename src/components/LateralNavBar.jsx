@@ -7,7 +7,8 @@ import { useState } from "react";
 import UserImg from "./smallComponenst/UserImg";
 
 function LateralNavBar() {
-  let { data } = user();
+  let { username, fullName } = user().data.user;
+
   let [mostrarLogOut, setMostrarLogOut] = useState(false);
 
   let changeState = () => {
@@ -15,12 +16,11 @@ function LateralNavBar() {
   };
 
   return (
-    <div className=" sticky top-0 hidden sm:flex justify-end h-screen md:w-5/12 sm:w-2/12 z-40">
+    <div className=" sticky top-0 hidden sm:flex justify-end h-screen md:w-5/12 sm:w-2/12">
       <nav className="flex flex-col justify-between p-2 bg-balack space-y-4 mx-4">
         <div className=" space-y-5">
           <div className="w-7 ">{x}</div>
           {links.map((e) => {
-            console.log(typeof e.ruta);
             return (
               <Link
                 to={typeof e.ruta == "function" ? e.ruta() : e.ruta}
@@ -48,10 +48,10 @@ function LateralNavBar() {
 
         <div className="relative cursor-pointer" onClick={changeState}>
           <div className="flex items-center space-x-4  ">
-            <UserImg w={"w-10"} user={data.user.fullName} />
+            <UserImg w={"w-10"} user={fullName} />
             <div className=" flex-col hidden lg:flex">
-              <span className=" font-bold text-lg">{data.user.fullName}</span>
-              <span className=" text-slate-500">@{data.user.username}</span>
+              <span className=" font-bold text-lg">{fullName}</span>
+              <span className=" text-slate-500">@{username}</span>
             </div>
             <div className="w-7 hidden lg:flex">{puntos}</div>
           </div>
