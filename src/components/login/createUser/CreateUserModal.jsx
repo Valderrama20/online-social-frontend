@@ -5,16 +5,23 @@ import { useEffect } from "react";
 import { close, x } from "../../../asset/icons";
 import Step2 from "./Step2";
 import Step1 from "./Step1";
+import Loading from "../../smallComponenst/Loading";
 
 export default function CreateUserModal({ changeState }) {
-  let { data, fetchData } = useAxios();
+  let { data, error, isLoading, fetchData } = useAxios();
   let [step, setStep] = useState(1);
 
   useEffect(() => {
     if (data) {
       changeState("change");
     }
-  }, [data]);
+    if (error) {
+      alert(
+        "Algo salio mal. Intenta crear tu usuario nuevamente con otro gmail"
+      );
+      changeState("register");
+    }
+  }, [data, error]);
 
   let [userInfo, setUserInfo] = useState({
     fullName: "",
@@ -40,13 +47,15 @@ export default function CreateUserModal({ changeState }) {
   };
 
   return (
-    <div className="fixed flex h-screen w-screen ">
-      <div className=" rounded-2xl w-full sm:w-[500px] sm:m-auto text-white p-3 z-50 bg-black ">
+    <div className="fixed flex h-screen w-screen  ">
+      <div className=" rounded-2xl w-full sm:w-[500px] sm:m-auto text-white p-3 z-50 bg-black scaleUpCenter ">
         <div className="flex items-center mb-7">
           <button onClick={() => changeState("register")}>{close}</button>
           <div className="h-7 w-7 ml-[43%] ">{x}</div>
         </div>
-        {step == 1 ? (
+        {isLoading ? (
+          <Loading />
+        ) : step == 1 ? (
           <Step1
             changeInput={changeInput}
             userInfo={userInfo}
