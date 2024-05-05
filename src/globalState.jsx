@@ -47,9 +47,12 @@ export const getPosts = create((set, get) => ({
         "https://online-back-6i1s.onrender.com/api/v1/post"
       );
       set({ postsArr: response.data.reverse() });
-      console.log(response.data);
     } catch (error) {
       console.error("No se pudo traer los dados", error);
     }
+  },
+  deletePost: (id) => {
+    let filter = get().postsArr.filter((e) => e._id !== id);
+    set({ postsArr: filter });
   },
 }));

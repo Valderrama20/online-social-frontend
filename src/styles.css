@@ -56,6 +56,20 @@ body {
         }
     }
 
+    .scaleDownCenter {
+        animation: scale-down-center 0.4s;
+    }
+
+    @keyframes scale-down-center {
+        0% {
+            transform: scale(1)
+        }
+
+        100% {
+            transform: scale(.5)
+        }
+    }
+
     .textGray {
         @apply text-[#656a6e]
     }

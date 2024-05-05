@@ -9,7 +9,7 @@ import LateralNavBar2 from "./LateralNavBar2";
 
 function PostsWall() {
   let [posts, setPosts] = useState([]);
-  let { loadData, postsArr } = getPosts();
+  let { loadData, postsArr, deletePost } = getPosts();
   let { data } = user();
 
   let [isOpen, setIsOpen] = useState(false);
@@ -61,7 +61,7 @@ function PostsWall() {
       <div className="smt-28">
         {posts.length ? (
           posts.map((e) => {
-            return <Card publication={e} key={e._id} />;
+            return <Card publication={e} deletePost={deletePost} key={e._id} />;
           })
         ) : (
           <Loading />
