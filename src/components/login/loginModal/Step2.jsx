@@ -2,7 +2,7 @@ export default function ({ userLogin, login, changeInput }) {
   return (
     <form
       onSubmit={login}
-      className=" flex flex-col px-8 sm:w-[360px] h-full sm:m-auto"
+      className=" flex flex-col px-8 sm:w-[360px] h-full sm:m-auto "
     >
       <h2 className="font-bold text-2xl mb-8">Introduce tu contraseña</h2>
       <div className="flex flex-col mb-5">

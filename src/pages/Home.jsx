@@ -4,7 +4,7 @@ import SearchInfo from "../components/SearchInfo";
 
 export default function Home() {
   return (
-    <div className=" flex">
+    <div className=" flex ">
       <LateralNavBar />
       <PostsWall />
       <SearchInfo />

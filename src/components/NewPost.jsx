@@ -6,29 +6,32 @@ import {
   scheduleIcon,
   locationIcon,
 } from "../asset/icons";
-import { useEffect, useState } from "react";
-import { useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { user } from "../globalState";
 import useAxios from "../hooks/useAxios";
 import { methods } from "../generalVarianbles";
 import UserImg from "./smallComponenst/UserImg";
+import Loading from "../components/smallComponenst/Loading";
+import AutoExpandTextarea from "./smallComponenst/AutoExpandTextarea";
 
 export default function NewPost({ postAdd }) {
-  const [loading, setLoading] = useState(false);
-  const [image, setImage] = useState(false);
+  const [image, setImage] = useState(null);
   const [textarea, setTextarea] = useState("");
-  const { data: dataApi, error, fetchData } = useAxios("multipart/form-data");
-  const { data: dataApi2, error: error2, fetchData: fetchData2 } = useAxios();
+  const {
+    data: dataApi,
+    isLoading,
+    fetchData,
+  } = useAxios("multipart/form-data");
+  const { fetchData: fetchData2 } = useAxios();
 
   let { data } = user();
 
   useEffect(() => {
     if (dataApi) setImage(dataApi?.url);
-    console.log(dataApi);
   }, [dataApi]);
 
-  let imageUpload = async (e) => {
-    let file = e.target.files[0];
+  const imageUpload = async (e) => {
+    const file = e.target.files[0];
 
     const formData = new FormData();
     formData.append("file", file);
@@ -54,23 +57,24 @@ export default function NewPost({ postAdd }) {
     };
 
     await fetchData2(methods.post, "/api/v1/post", post);
-    postAdd(post);
+    postAdd({ ...post, userId: data.user });
+    setTextarea("");
+    setImage(null);
   };
 
   return (
-    <div className=" flex py-3 border-b borderColor">
-      <div className="pl-3 -mr-1 ">
-        <UserImg w={"w-12"} />
+    <div className=" hidden sm:flex pt-3 border-b borderColor">
+      <div className="pl-4 pt-2 -mr-1 ">
+        <UserImg w={"w-12"} user={data.user.fullName} />
       </div>
-      <div className=" w-full mx-3 mt-1">
-        <textarea
-          className=" w-full h-auto bg-black text-white text-xl placeholder-textarea "
-          placeholder="What is happening?!"
-          onChange={changeTextarea}
-        ></textarea>
-        <div className="flex my-2">
-          {loading ? (
-            <div>Cargando</div>
+      <div className=" w-full mx-3 mt-3.5">
+        <AutoExpandTextarea
+          changeTextarea={changeTextarea}
+          textarea={textarea}
+        />
+        <div className="flex ">
+          {isLoading ? (
+            <Loading />
           ) : image ? (
             <img
               src={image}
@@ -82,7 +86,7 @@ export default function NewPost({ postAdd }) {
         <div
           className={`flex items-center justify-between ${image && "border-t"} py-3 borderColor`}
         >
-          <div className=" text-sky-400 flex space-x-4 cursor-pointer">
+          <div className=" text-sky-500 flex space-x-4 cursor-pointer">
             <input
               type="file"
               accept="image/*"
@@ -90,7 +94,9 @@ export default function NewPost({ postAdd }) {
               ref={fileInputRef}
               onChange={imageUpload}
             />
-            <button onClick={falseClickInInput}>{img}</button>
+            <button onClick={falseClickInInput} aria-label="Upload image">
+              {img}
+            </button>
             {gifIcon}
             {pollIcon}
             {emojiIcon}
@@ -98,7 +104,7 @@ export default function NewPost({ postAdd }) {
             {locationIcon}
           </div>
           <button
-            className=" text-white py-2 px-4 bg-sky-600 rounded-3xl font-semibold"
+            className={` text-white py-2 px-4 btn-color rounded-3xl font-semibold ${textarea.length || image ? "" : "opacity-25"} `}
             onClick={createPost}
             disabled={textarea.length || image ? false : true}
           >

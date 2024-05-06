@@ -40,7 +40,7 @@ export default function LoginModal({ changeState }) {
 
   return (
     <div className="fixed flex h-screen w-screen ">
-      <div className=" w-full sm:w-[500px] sm:m-auto bg-black flex flex-col rounded-2xl p-4 z-50">
+      <div className=" w-full sm:w-[500px] sm:m-auto bg-black flex flex-col rounded-2xl p-4 z-50 scaleUpCenter">
         <div className="text-xl font-semibold flex mb-7">
           <button onClick={changeState}>{close}</button>
           <div className="h-8 w-8 ml-[42%]">{x}</div>
