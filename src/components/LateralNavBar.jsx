@@ -16,7 +16,7 @@ function LateralNavBar() {
   };
 
   return (
-    <div className=" sticky top-0 hidden sm:flex justify-end h-screen md:w-5/12 sm:w-2/12">
+    <div className=" sticky top-0 hidden sm:flex justify-end h-screen lg:w-5/12 sm:w-2/12 z-0">
       <nav className="flex flex-col justify-between p-2 bg-balack space-y-4 mx-4">
         <div className=" space-y-5">
           <div className="w-7 ">{x}</div>
