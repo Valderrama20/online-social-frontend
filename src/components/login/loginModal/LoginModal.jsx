@@ -5,7 +5,7 @@ import useAxios from "../../../hooks/useAxios";
 import { methods } from "../../../generalVarianbles";
 import { useEffect } from "react";
 import { apple, close, google, x } from "../../../asset/icons";
-import Loading from "../../smallComponenst/Loading";
+import Loading from "../../smallComponenst/loading.jsx";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 

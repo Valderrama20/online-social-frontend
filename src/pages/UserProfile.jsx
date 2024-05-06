@@ -10,7 +10,7 @@ import { back, calendar } from "../asset/icons";
 import Card from "../components/CardOfPublication";
 import { formatearFecha } from "../utils/funciones";
 import { Link } from "react-router-dom";
-import Loading from "../components/smallComponenst/Loading";
+import Loading from "../components/smallComponenst/loading.jsx";
 
 export default function ProfileUser() {
   let [posts, setPosts] = useState([]);
