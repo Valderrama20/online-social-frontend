@@ -1,5 +1,5 @@
 import { puntos, searchIcon } from "../asset/icons";
-import { trendingTopics } from "../generalVarianbles";
+import { trendingTopics } from "../common/generalVarianbles";
 import Trending from "./smallComponenst/Trending";
 
 export default function SearchInfo() {

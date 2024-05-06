@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { pluma, puntos, x } from "../asset/icons";
-import { links } from "../generalVarianbles";
-import { user } from "../globalState";
+import { links } from "../common/generalVarianbles";
+import { user } from "../common/globalState";
 import LogOut from "./smallComponenst/LogOut";
 import { useState } from "react";
 import UserImg from "./smallComponenst/UserImg";

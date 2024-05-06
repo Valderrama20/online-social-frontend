@@ -2,10 +2,10 @@ import { useState } from "react";
 import { close } from "../../asset/icons";
 import UserImg from "./UserImg";
 import useAxios from "../../hooks/useAxios";
-import { methods } from "../../generalVarianbles";
-import { user } from "../../globalState";
+import { methods } from "../../common/generalVarianbles";
+import { user } from "../../common/globalState";
 
-export default function ({ user: user2, isOpen, refreshUser }) {
+const UserProfileEdit = ({ user: user2, isOpen, refreshUser }) => {
   const { fetchData } = useAxios();
   const [userData, setDataUser] = useState({
     fullName: user2.fullName,
@@ -84,3 +84,5 @@ export default function ({ user: user2, isOpen, refreshUser }) {
     </div>
   );
 }
+
+export default UserProfileEdit;

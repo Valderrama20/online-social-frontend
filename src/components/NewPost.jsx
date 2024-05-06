@@ -7,9 +7,9 @@ import {
   locationIcon,
 } from "../asset/icons";
 import { useEffect, useState, useRef } from "react";
-import { user } from "../globalState";
+import { user } from "../common/globalState";
 import useAxios from "../hooks/useAxios";
-import { methods } from "../generalVarianbles";
+import { methods } from "../common/generalVarianbles";
 import UserImg from "./smallComponenst/UserImg";
 import AutoExpandTextarea from "./smallComponenst/AutoExpandTextarea";
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useAxios from "../../../hooks/useAxios";
-import { methods } from "../../../generalVarianbles";
+import { methods } from "../../../common/generalVarianbles";
 import { useEffect } from "react";
 import { close, x } from "../../../asset/icons";
 import Step2 from "./Step2";
