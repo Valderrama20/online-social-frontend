@@ -5,7 +5,7 @@ import useAxios from "../../hooks/useAxios";
 import { methods } from "../../generalVarianbles";
 import { user } from "../../globalState";
 
-export default function ({ user: user2, isOpen, refreshUser }) {
+const UserProfileEdit = ({ user: user2, isOpen, refreshUser }) => {
   const { fetchData } = useAxios();
   const [userData, setDataUser] = useState({
     fullName: user2.fullName,
@@ -84,3 +84,5 @@ export default function ({ user: user2, isOpen, refreshUser }) {
     </div>
   );
 }
+
+export default UserProfileEdit;

@@ -10,7 +10,7 @@ import { back, calendar } from "../asset/icons";
 import Card from "../components/CardOfPublication";
 import { formatearFecha } from "../utils/funciones";
 import { Link, useParams } from "react-router-dom";
-import Loading from "../components/smallComponenst/oading";
+import Loading from "../components/smallComponenst/loading.jsx";
 import EditProfile from "../components/smallComponenst/EditProfile";
 
 export default function ProfileUser() {

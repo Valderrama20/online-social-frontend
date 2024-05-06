@@ -3,7 +3,7 @@ import { engranaje, x } from "../asset/icons";
 import Card from "./CardOfPublication";
 import { getPosts, user } from "../globalState";
 import NewPost from "./NewPost";
-import Loading from "./smallComponenst/Loading";
+import Loading from "./smallComponenst/loading.jsx";
 import UserImg from "./smallComponenst/UserImg";
 import LateralNavBar2 from "./LateralNavBar2";
 

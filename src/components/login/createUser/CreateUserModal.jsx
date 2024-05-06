@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { close, x } from "../../../asset/icons";
 import Step2 from "./Step2";
 import Step1 from "./Step1";
-import Loading from "../../smallComponenst/Loading";
+import Loading from "../../smallComponenst/loading.jsx";
 
 export default function CreateUserModal({ changeState }) {
   let { data, error, isLoading, fetchData } = useAxios();
