@@ -55,13 +55,14 @@ function Card({ publication, deletePost }) {
           )}
         </div>
         <p className=" leading-tight text-[#d7d8d9]  ">{content}</p>
-        <img
-          src={imageUrl}
-          alt=""
-          className=" max-h-[500px] w-full object-fit rounded-3xl border borderColor mt-3"
-        />
-        {/* text-[#71767a] */}
-        <div className=" flex textGray ">
+        {imageUrl && (
+          <img
+            src={imageUrl}
+            alt=""
+            className=" max-h-[500px] w-full object-fit rounded-3xl border borderColor mt-3"
+          />
+        )}
+        <div className=" flex textGray -mb-2 mt-2 ">
           <span className=" btn w-full ">{message} 2</span>
           <span className=" btn w-full ">{repost} 7</span>
           <span className=" btn w-full ">{fevorite} 10</span>

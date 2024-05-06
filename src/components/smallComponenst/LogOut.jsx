@@ -12,7 +12,7 @@ export default function LogOut({ changeStateLogOut }) {
   };
 
   return (
-    <div className="bg-black p-2 boxshadow rounded-xl font-semibold w-[260px] absolute -top-20 left-2">
+    <div className=" bg-black p-2 boxshadow rounded-xl font-semibold w-[260px] absolute -top-20 left-2 ">
       <div onClick={changeStateLogOut}>{close}</div>
 
       <div className=" cursor-pointer p-3" onClick={signOff}>
