@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { user } from "../../../globalState";
+import { user } from "../../../common/globalState";
 import useAxios from "../../../hooks/useAxios";
-import { methods } from "../../../generalVarianbles";
+import { methods } from "../../../common/generalVarianbles";
 import { useEffect } from "react";
 import { apple, close, google, x } from "../../../asset/icons";
 import Step1 from "./Step1";

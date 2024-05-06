@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { methods } from "../generalVarianbles";
-import { user } from "../globalState";
+import { methods } from "../common/generalVarianbles";
+import { user } from "../common/globalState";
 import useAxios from "../hooks/useAxios";
 import { useState } from "react";
 import LateralNavBar from "../components/LateralNavBar";

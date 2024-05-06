@@ -1,6 +1,6 @@
 import { close } from "../asset/icons";
 import UserImg from "./smallComponenst/UserImg";
-import { links } from "../generalVarianbles";
+import { links } from "../common/generalVarianbles";
 import { Link } from "react-router-dom";
 
 export default function ({ isOpen, setIsOpen, user }) {

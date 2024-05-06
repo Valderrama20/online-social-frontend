@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { user } from "../globalState";
+import { user } from "../common/globalState";
 
 export default function useAxios(contentType = "application/json") {
   const [data, setData] = useState(null);

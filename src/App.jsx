@@ -2,7 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import LoginAndRegister from "./pages/LoginAndRegister";
 import ProfileUser from "./pages/UserProfile";
-import { user } from "./globalState";
+import { user } from "./common/globalState";
 
 export default function App() {
   const isLogin = () => {

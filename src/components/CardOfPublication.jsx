@@ -11,8 +11,8 @@ import useAxios from "../hooks/useAxios";
 import { calculateTime } from "../utils/funciones";
 import UserImg from "./smallComponenst/UserImg";
 import { Link } from "react-router-dom";
-import { methods } from "../generalVarianbles";
-import { user } from "../globalState";
+import { methods } from "../common/generalVarianbles";
+import { user } from "../common/globalState";
 
 function Card({ publication, deletePost }) {
   const { fetchData } = useAxios();

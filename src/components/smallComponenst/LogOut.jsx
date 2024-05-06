@@ -1,5 +1,5 @@
 import { back, close } from "../../asset/icons";
-import { user } from "../../globalState";
+import { user } from "../../common/globalState";
 import { useNavigate } from "react-router-dom";
 
 export default function LogOut({ changeStateLogOut }) {
