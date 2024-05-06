@@ -8,7 +8,7 @@ import {
   ProfileIcon,
   MoreIcon,
   img,
-} from "./asset/icons";
+} from "../asset/icons";
 import { user } from "./globalState";
 
 export const links = [

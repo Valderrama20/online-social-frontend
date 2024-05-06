@@ -1,4 +1,4 @@
-export default function ({ userLogin, login, changeInput }) {
+function Step2 ({ userLogin, login, changeInput }) {
   return (
     <form
       onSubmit={login}
@@ -30,3 +30,5 @@ export default function ({ userLogin, login, changeInput }) {
     </form>
   );
 }
+
+export default Step2;

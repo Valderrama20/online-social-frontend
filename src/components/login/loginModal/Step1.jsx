@@ -1,6 +1,6 @@
 import { apple, google } from "../../../asset/icons";
 
-export default function ({ changeState, userLogin, nextSeccion, changeInput }) {
+function Step1 ({ changeState, userLogin, nextSeccion, changeInput }) {
   return (
     <form
       onSubmit={nextSeccion}
@@ -52,3 +52,5 @@ export default function ({ changeState, userLogin, nextSeccion, changeInput }) {
     </form>
   );
 }
+
+export default Step1;

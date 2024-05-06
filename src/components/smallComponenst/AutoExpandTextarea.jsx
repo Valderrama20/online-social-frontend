@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
-export default function ({ textarea, changeTextarea }) {
+const AutoExpandTextarea = ({ textarea, changeTextarea }) => {
   let textareaRef = useRef(null);
 
   useEffect(() => {
@@ -23,3 +23,6 @@ export default function ({ textarea, changeTextarea }) {
     </div>
   );
 }
+
+export default AutoExpandTextarea;
+

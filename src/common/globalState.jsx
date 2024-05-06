@@ -1,7 +1,7 @@
 import axios from "axios";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-import useAxios from "./hooks/useAxios";
+import useAxios from "../hooks/useAxios";
 
 // elimina el usuario
 // Guarda el token de acceso

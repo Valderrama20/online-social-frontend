@@ -1,4 +1,4 @@
-import { user } from "../../globalState";
+import { user } from "../../common/globalState";
 
 export default function UserImg({ w, user }) {
   return (

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { engranaje, x } from "../asset/icons";
 import Card from "./CardOfPublication";
-import { getPosts, user } from "../globalState";
+import { getPosts, user } from "../common/globalState";
 import NewPost from "./NewPost";
 import UserImg from "./smallComponenst/UserImg";
 import LateralNavBar2 from "./LateralNavBar2";
