@@ -3,7 +3,6 @@ import { engranaje, x } from "../asset/icons";
 import Card from "./CardOfPublication";
 import { getPosts, user } from "../globalState";
 import NewPost from "./NewPost";
-import Loading from "./smallComponenst/loading.jsx";
 import UserImg from "./smallComponenst/UserImg";
 import LateralNavBar2 from "./LateralNavBar2";
 
@@ -59,13 +58,14 @@ function PostsWall() {
       <NewPost postAdd={postAdd} />
 
       <div className="smt-28">
-        {posts.length ? (
-          posts.map((e) => {
-            return <Card publication={e} deletePost={deletePost} key={e._id} />;
-          })
-        ) : (
-          <Loading />
-        )}
+        {posts.length
+          ? posts.map((e) => {
+              return (
+                <Card publication={e} deletePost={deletePost} key={e._id} />
+              );
+            })
+          : "" // <Loading />
+        }
       </div>
       <div className="relative z-20">
         <LateralNavBar2

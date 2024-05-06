@@ -10,7 +10,6 @@ import { back, calendar } from "../asset/icons";
 import Card from "../components/CardOfPublication";
 import { formatearFecha } from "../utils/funciones";
 import { Link, useParams } from "react-router-dom";
-import Loading from "../components/smallComponenst/loading.jsx";
 import EditProfile from "../components/smallComponenst/EditProfile";
 
 export default function ProfileUser() {
@@ -45,9 +44,7 @@ export default function ProfileUser() {
     <div className="flex ">
       <LateralNavBar />
       {!data3?.fullName ? (
-        <div className="w-full my-[200px]">
-          <Loading />
-        </div>
+        <div className="w-full my-[200px]">""</div>
       ) : (
         <div className="w-full bg-black border-x borderColor  ">
           <div className="flex items-center  bg-black ">
@@ -124,13 +121,11 @@ export default function ProfileUser() {
               </span>
             </div>
             <div className="">
-              {!posts?.length ? (
-                <Loading />
-              ) : (
-                posts.map((e) => {
-                  return <Card key={e._id} publication={e} />;
-                })
-              )}
+              {!posts?.length
+                ? ""
+                : posts.map((e) => {
+                    return <Card key={e._id} publication={e} />;
+                  })}
             </div>
           </div>
         </div>
