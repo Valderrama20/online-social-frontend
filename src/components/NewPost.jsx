@@ -57,7 +57,7 @@ export default function NewPost({ postAdd }) {
     };
 
     await fetchData2(methods.post, "/api/v1/post", post);
-    postAdd({ ...post, userId: data.user });
+    postAdd({ ...post, userId: data.user, createdAt: `${new Date()}` });
     setTextarea("");
     setImage(null);
   };

@@ -39,9 +39,9 @@ function PostsWall() {
           }}
         ></div>
         <div className=" relative z-10 flex items-center justify-between h-14 px-2  ">
-          <div onClick={() => setIsOpen(!isOpen)}>
+          <button onClick={() => setIsOpen(!isOpen)}>
             <UserImg w={"w-8 sm:hidden"} user={data.user.fullName} />
-          </div>
+          </button>
 
           <div className="w-6 sm:hidden ">{x}</div>
 

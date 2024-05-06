@@ -8,7 +8,7 @@ export default function ({ isOpen, setIsOpen, user }) {
 
   return (
     <div
-      className={` h-full w-full fixed flex top-0 left-0 transition-transform transform ${
+      className={` h-full w-full fixed flex md:hidden top-0 left-0 transition-transform transform ${
         isOpen ? "translate-x-0" : "-translate-x-full  "
       }`}
     >
