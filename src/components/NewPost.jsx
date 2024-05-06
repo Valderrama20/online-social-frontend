@@ -11,7 +11,6 @@ import { user } from "../globalState";
 import useAxios from "../hooks/useAxios";
 import { methods } from "../generalVarianbles";
 import UserImg from "./smallComponenst/UserImg";
-import Loading from "../components/smallComponenst/Loading";
 import AutoExpandTextarea from "./smallComponenst/AutoExpandTextarea";
 
 export default function NewPost({ postAdd }) {
@@ -74,7 +73,7 @@ export default function NewPost({ postAdd }) {
         />
         <div className="flex ">
           {isLoading ? (
-            <Loading />
+            ""
           ) : image ? (
             <img
               src={image}

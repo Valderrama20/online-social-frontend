@@ -5,7 +5,6 @@ import useAxios from "../../../hooks/useAxios";
 import { methods } from "../../../generalVarianbles";
 import { useEffect } from "react";
 import { apple, close, google, x } from "../../../asset/icons";
-import Loading from "../../smallComponenst/Loading";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 
@@ -46,7 +45,7 @@ export default function LoginModal({ changeState }) {
           <div className="h-8 w-8 ml-[42%]">{x}</div>
         </div>
         {isLoading ? (
-          <Loading />
+          ""
         ) : seccion === 1 ? (
           <Step1
             changeInput={changeInput}
