@@ -6,7 +6,8 @@
 body {
     /* @apply min-h-screen bg-white dark:bg-gray-900 dark:text-gray-200; */
     background-color: black;
-    color: #e8eaeb
+    color: #e8eaeb;
+
 }
 
 @layer components {

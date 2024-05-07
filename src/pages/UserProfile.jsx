@@ -8,7 +8,7 @@ import SearchInfo from "../components/SearchInfo";
 import UserImg from "../components/smallComponenst/UserImg";
 import { back, calendar } from "../asset/icons";
 import Card from "../components/CardOfPublication";
-import { formatearFecha } from "../utils/funciones";
+import { formatearFecha, scrollOff } from "../utils/funciones";
 import { Link, useParams } from "react-router-dom";
 import EditProfile from "../components/smallComponenst/EditProfile";
 
@@ -32,6 +32,7 @@ export default function ProfileUser() {
   }, [data]);
 
   const isOpen = () => {
+    scrollOff(!openEdit);
     setOpenEdit(!openEdit);
   };
 
@@ -40,13 +41,15 @@ export default function ProfileUser() {
     await fetchData(methods.get, "/api/v1/post");
   };
 
+  console.log(data3);
+
   return (
-    <div className="flex ">
+    <div className="flex  ">
       <LateralNavBar />
       {!data3?.fullName ? (
         <div className="w-full my-[200px]">""</div>
       ) : (
-        <div className="w-full bg-black border-x borderColor  ">
+        <div className="w-full bg-black border-x borderColor   ">
           <div className="flex items-center  bg-black ">
             <Link to="/" className=" w-6 text-white mx-4">
               {back}
@@ -61,9 +64,13 @@ export default function ProfileUser() {
             </div>
           </div>
           <div>
-            <div className="h-52 bgGray"></div>
+            <img
+              src={data3.imagePortada}
+              alt=""
+              className="w-full object-cover max-h-[200px]"
+            />
             <div className="-mt-16 ml-5 border-4 border-black absolute rounded-full">
-              {<UserImg w={"h-36"} user={data3?.fullName} />}
+              {<UserImg size={"36"} url={data3.imageProfile} />}
             </div>
             <div className="flex h-16 w-full items-center justify-end">
               {data3?._id == _id && (
