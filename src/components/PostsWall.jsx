@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { engranaje, x } from "../asset/icons";
+import { engranaje, logo } from "../asset/icons";
 import Card from "./CardOfPublication";
 import { getPosts, user } from "../common/globalState";
 import NewPost from "./NewPost";
@@ -42,7 +42,7 @@ function PostsWall() {
             <UserImg w={"w-8 sm:hidden"} user={data.user.fullName} />
           </button>
 
-          <div className="w-6 sm:hidden ">{x}</div>
+          <div className="w-6 sm:hidden ">{logo}</div>
 
           <div className=" hidden sm:flex w-full justify-around ">
             <span>For you</span>

@@ -6,7 +6,7 @@ function Step1 ({ changeState, userLogin, nextSeccion, changeInput }) {
       onSubmit={nextSeccion}
       className="flex flex-col w-full max-w-[290px] sm:w-[600px] m-auto "
     >
-      <h2 className="font-bold text-3xl mb-8">Inicia sesion en X</h2>
+      <h2 className="font-bold text-3xl mb-8">Inicia sesion</h2>
       <div className=" space-y-4  text-black font-semibold cursor-not-allowed">
         <div className=" bg-white rounded-full h-10 flex items-center justify-center">
           {google} Registrarse con Google
