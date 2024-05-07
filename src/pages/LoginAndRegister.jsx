@@ -1,6 +1,6 @@
 import { useState } from "react";
 import LoginModal from "../components/login/loginModal/LoginModal";
-import { apple, google, x } from "../asset/icons";
+import { apple, google, logo } from "../asset/icons";
 import CreateUserModal from "../components/login/createUser/CreateUserModal";
 
 export default function LoginAndRegister() {
@@ -18,7 +18,7 @@ export default function LoginAndRegister() {
     <div className="flex text-white  ">
       <div className=" lg:flex lg:w-full lg:mt-40 m-auto ">
         <div className=" sm:w-5/12 mb-[50px]">
-          <div className="mt-[100px] lg:mx-auto  w-12 lg:w-[70%]">{x}</div>
+          <div className="mt-[100px] lg:mx-auto  w-12 lg:w-[70%]">{logo}</div>
         </div>
         <div className="">
           <h1 className="font-bold text-5xl  sm:text-6xl text-[#e8eaeb]  ">

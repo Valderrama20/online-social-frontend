@@ -1,4 +1,4 @@
-import { back, close } from "../../asset/icons";
+import { close } from "../../asset/icons";
 import { user } from "../../common/globalState";
 import { useNavigate } from "react-router-dom";
 
