@@ -70,7 +70,7 @@ export default function ProfileUser() {
               className="w-full object-cover max-h-[200px]"
             />
             <div className="-mt-16 ml-5 border-4 border-black absolute rounded-full">
-              {<UserImg size={"36"} url={data3.imageProfile} />}
+              <UserImg size={"28"} url={data3.imageProfile} />
             </div>
             <div className="flex h-16 w-full items-center justify-end">
               {data3?._id == _id && (
