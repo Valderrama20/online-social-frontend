@@ -43,3 +43,17 @@ export function formatearFecha(fechaStr) {
 
   return fechaFormateada;
 }
+
+export function scrollOff(isOff) {
+  let body = document.body.classList;
+
+  isOff ? body.add("overflow-hidden") : body.remove("overflow-hidden");
+}
+
+export function createFormData(e) {
+  const file = e.target.files[0];
+  const formData = new FormData();
+  formData.append("file", file);
+
+  return formData;
+}

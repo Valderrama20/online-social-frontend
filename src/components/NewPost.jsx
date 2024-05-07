@@ -12,6 +12,7 @@ import useAxios from "../hooks/useAxios";
 import { methods } from "../common/generalVarianbles";
 import UserImg from "./smallComponenst/UserImg";
 import AutoExpandTextarea from "./smallComponenst/AutoExpandTextarea";
+import { createFormData } from "../utils/funciones";
 
 export default function NewPost({ postAdd }) {
   const [image, setImage] = useState(null);
@@ -29,13 +30,9 @@ export default function NewPost({ postAdd }) {
     if (dataApi) setImage(dataApi?.url);
   }, [dataApi]);
 
-  const imageUpload = async (e) => {
-    const file = e.target.files[0];
-
-    const formData = new FormData();
-    formData.append("file", file);
-
-    await fetchData(methods.post, "/api/v1/cloudinary/upload", formData);
+  const imageUpload = (e) => {
+    let formData = createFormData(e);
+    fetchData(methods.post, "/api/v1/cloudinary/upload", formData);
   };
 
   // referencia para que cuando le des click a otro elemento sea el click al input file

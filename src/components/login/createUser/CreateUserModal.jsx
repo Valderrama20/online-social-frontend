@@ -28,6 +28,8 @@ export default function CreateUserModal({ changeState }) {
     password: "",
     age: 0,
     username: "",
+    imageProfile: "",
+    imagePortada: "",
   });
 
   const changeInput = (e) => {
