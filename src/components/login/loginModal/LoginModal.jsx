@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { user } from "../../../common/globalState";
 import useAxios from "../../../hooks/useAxios";
 import { methods } from "../../../common/generalVarianbles";
 import { useEffect } from "react";
-import { apple, close, google, x } from "../../../asset/icons";
+import { close, logo } from "../../../asset/icons";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 
@@ -42,7 +42,7 @@ export default function LoginModal({ changeState }) {
       <div className=" w-full sm:w-[500px] sm:m-auto bg-black flex flex-col rounded-2xl p-4 z-50 scaleUpCenter">
         <div className="text-xl font-semibold flex mb-7">
           <button onClick={changeState}>{close}</button>
-          <div className="h-8 w-8 ml-[42%]">{x}</div>
+          <div className="h-16 w-20 ml-[40%]">{logo}</div>
         </div>
         {isLoading ? (
           ""
