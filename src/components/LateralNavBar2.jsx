@@ -31,12 +31,10 @@ export default function ({ isOpen, setIsOpen, user: user2 }) {
 
         <div>
           <div className="mt-4 mx-4">
-            <UserImg url={imageProfile} user={fullName} />
-
+            <UserImg url={imageProfile} user={fullName} size={"w-20 h-20"} />
             <span className="text-white font-bold text-2xl">{fullName}</span>
             <br />
             <span className="textGray">@{username}</span>
-
             <div className="flex space-x-3 textGray mt-3">
               <div>
                 <span className="text-white">8 </span>

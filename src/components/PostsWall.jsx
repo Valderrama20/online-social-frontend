@@ -41,7 +41,7 @@ function PostsWall() {
         <div className=" relative z-10 flex items-center justify-between h-14 px-2  ">
           <button onClick={() => setIsOpen(!isOpen)} className=" sm:hidden">
             <UserImg
-              size={8}
+              size={"w-10 h-10"}
               url={data.user.imageProfile}
               user={data.user.fullName}
             />
