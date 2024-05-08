@@ -11,7 +11,6 @@ import Card from "../components/CardOfPublication";
 import { formatearFecha, scrollOff } from "../utils/funciones";
 import { Link, useParams } from "react-router-dom";
 import EditProfile from "../components/smallComponenst/EditProfile";
-import Loading from "../components/smallComponenst/Loading.jsx";
 
 export default function ProfileUser() {
   const [posts, setPosts] = useState([]);
@@ -46,9 +45,7 @@ export default function ProfileUser() {
     <div className="flex  ">
       <LateralNavBar />
       {!data3?.fullName ? (
-        <div className="w-full my-[200px]">
-          <Loading />
-        </div>
+        <div className="w-full my-[200px]">""</div>
       ) : (
         <div className="w-full bg-black border-x borderColor   ">
           <div className="flex items-center  bg-black ">
