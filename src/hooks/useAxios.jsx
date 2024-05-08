@@ -10,10 +10,10 @@ export default function useAxios(contentType = "application/json") {
   let { data: data2 } = user();
 
   const axiosInstance = axios.create({
-    baseURL: "https://online-back-6i1s.onrender.com",
+    baseURL: "https://online-back-3z3yj.ondigitalocean.app",
     headers: {
       Authorization: `Bearer ${data2.accessToken || null}`,
-      "Content-Type": contentType ,
+      "Content-Type": contentType,
     },
   });
 

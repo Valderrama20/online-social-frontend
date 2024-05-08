@@ -15,12 +15,15 @@ export default function App() {
       <Routes>
         <Route
           path="/"
-          element={isLogin() ? <Home /> : <Navigate to="/login" />}
+          element={isLogin() ? <Navigate to="/home" /> : <LoginAndRegister />}
         />
-        <Route path="/login" element={<LoginAndRegister />} />
+        <Route
+          path="/home"
+          element={isLogin() ? <Home /> : <Navigate to="/" />}
+        />
         <Route
           path="/profile/:user/:id"
-          element={isLogin() ? <ProfileUser /> : <Navigate to="/login" />}
+          element={isLogin() ? <ProfileUser /> : <Navigate to="/" />}
         />
       </Routes>
     </BrowserRouter>
