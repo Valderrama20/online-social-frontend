@@ -7,7 +7,6 @@ import { useEffect } from "react";
 import { close, logo } from "../../../asset/icons";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
-import Loading from "../../smallComponenst/Loading";
 
 export default function LoginModal({ changeState }) {
   let [userLogin, setUserLogin] = useState({ email: "", password: "" });
@@ -46,7 +45,7 @@ export default function LoginModal({ changeState }) {
           <div className=" w-16 ml-[40%]">{logo}</div>
         </div>
         {isLoading ? (
-          <Loading />
+          "<Loading />"
         ) : seccion === 1 ? (
           <Step1
             changeInput={changeInput}

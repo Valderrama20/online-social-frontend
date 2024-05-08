@@ -5,7 +5,6 @@ import { getPosts, user } from "../common/globalState";
 import NewPost from "./NewPost";
 import UserImg from "./smallComponenst/UserImg";
 import LateralNavBar2 from "./LateralNavBar2";
-import Loading from "./smallComponenst/Loading";
 
 function PostsWall() {
   let [posts, setPosts] = useState([]);
@@ -64,15 +63,13 @@ function PostsWall() {
 
       <div className="smt-28">
         {
-          posts.length ? (
-            posts.map((e) => {
-              return (
-                <Card publication={e} deletePost={deletePost} key={e._id} />
-              );
-            })
-          ) : (
-            <Loading />
-          ) // <Loading />
+          posts.length
+            ? posts.map((e) => {
+                return (
+                  <Card publication={e} deletePost={deletePost} key={e._id} />
+                );
+              })
+            : "<Loading />" // <Loading />
         }
       </div>
       <div className="relative z-20">
