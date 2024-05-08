@@ -11,7 +11,7 @@ import Card from "../components/CardOfPublication";
 import { formatearFecha, scrollOff } from "../utils/funciones";
 import { Link, useParams } from "react-router-dom";
 import EditProfile from "../components/smallComponenst/EditProfile";
-import Loading from "../components/smallComponenst/loading"
+import Loading from "../components/smallComponenst/Loading";
 
 export default function ProfileUser() {
   const [posts, setPosts] = useState([]);
@@ -42,17 +42,17 @@ export default function ProfileUser() {
     await fetchData(methods.get, "/api/v1/post");
   };
 
-  console.log(data3);
-
   return (
     <div className="flex  ">
       <LateralNavBar />
       {!data3?.fullName ? (
-        <div className="w-full my-[200px]"><Loading/></div>
+        <div className="w-full my-[200px]">
+          <Loading />
+        </div>
       ) : (
         <div className="w-full bg-black border-x borderColor   ">
           <div className="flex items-center  bg-black ">
-            <Link to="/" className=" w-6 text-white mx-4">
+            <Link to="/home" className=" w-6 text-white mx-4">
               {back}
             </Link>
 
@@ -65,13 +65,17 @@ export default function ProfileUser() {
             </div>
           </div>
           <div>
-            <img
-              src={data3.imagePortada}
-              alt=""
-              className="w-full object-cover max-h-[200px]"
-            />
+            {data3.imagePortada ? (
+              <img
+                src={data3.imagePortada}
+                alt=""
+                className="w-full object-cover max-h-[200px]"
+              />
+            ) : (
+              <div className="h-[200px] w-full bg-slate-500"></div>
+            )}
             <div className="-mt-16 ml-5 border-4 border-black absolute rounded-full">
-              {<UserImg size={"36"} url={data3.imageProfile} />}
+              <UserImg size={"28"} url={data3.imageProfile} />
             </div>
             <div className="flex h-16 w-full items-center justify-end">
               {data3?._id == _id && (

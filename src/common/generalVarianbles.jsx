@@ -16,7 +16,7 @@ export const links = [
     id: "homeIcon",
     icon: HomeIcon,
     label: "Home",
-    ruta: "/",
+    ruta: "/home",
   },
   {
     id: "exploreIcon",

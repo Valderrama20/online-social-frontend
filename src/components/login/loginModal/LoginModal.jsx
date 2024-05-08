@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { close, logo } from "../../../asset/icons";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
+import Loading from "../../smallComponenst/Loading";
 
 export default function LoginModal({ changeState }) {
   let [userLogin, setUserLogin] = useState({ email: "", password: "" });
@@ -19,7 +20,7 @@ export default function LoginModal({ changeState }) {
   useEffect(() => {
     if (data) {
       set(data);
-      navigate("/");
+      navigate("/home");
     } else if (error) {
       alert("your mail or password is bad");
       setSeccion(1);
@@ -33,8 +34,8 @@ export default function LoginModal({ changeState }) {
 
   let nextSeccion = () => setSeccion(2);
 
-  let login = async () => {
-    await fetchData(methods.post, "/api/v1/auth/login", userLogin);
+  let login = () => {
+    fetchData(methods.post, "/api/v1/auth/login", userLogin);
   };
 
   return (
@@ -42,10 +43,10 @@ export default function LoginModal({ changeState }) {
       <div className=" w-full sm:w-[500px] sm:m-auto bg-black flex flex-col rounded-2xl p-4 z-50 scaleUpCenter">
         <div className="text-xl font-semibold flex mb-7">
           <button onClick={changeState}>{close}</button>
-          <div className="h-16 w-20 ml-[40%]">{logo}</div>
+          <div className=" w-16 ml-[40%]">{logo}</div>
         </div>
         {isLoading ? (
-          ""
+          <Loading />
         ) : seccion === 1 ? (
           <Step1
             changeInput={changeInput}

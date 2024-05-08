@@ -5,6 +5,7 @@ import { getPosts, user } from "../common/globalState";
 import NewPost from "./NewPost";
 import UserImg from "./smallComponenst/UserImg";
 import LateralNavBar2 from "./LateralNavBar2";
+import Loading from "./smallComponenst/Loading";
 
 function PostsWall() {
   let [posts, setPosts] = useState([]);
@@ -29,7 +30,7 @@ function PostsWall() {
 
   return (
     <div className=" w-full border-x borderColor relative ">
-      <div className="sticky top-0 w-full z-10 border-b borderColor">
+      <div className="sticky top-0 w-full z-10 border-b borderColor ">
         <div
           className="absolute inset-0 "
           style={{
@@ -38,11 +39,15 @@ function PostsWall() {
           }}
         ></div>
         <div className=" relative z-10 flex items-center justify-between h-14 px-2  ">
-          <button onClick={() => setIsOpen(!isOpen)}>
-            <UserImg w={"w-8 sm:hidden"} user={data.user.fullName} />
+          <button onClick={() => setIsOpen(!isOpen)} className=" sm:hidden">
+            <UserImg
+              size={8}
+              url={data.user.imageProfile}
+              user={data.user.fullName}
+            />
           </button>
 
-          <div className="w-6 sm:hidden ">{logo}</div>
+          <div className="w-10 sm:hidden ">{logo}</div>
 
           <div className=" hidden sm:flex w-full justify-around ">
             <span>For you</span>
@@ -58,13 +63,16 @@ function PostsWall() {
       <NewPost postAdd={postAdd} />
 
       <div className="smt-28">
-        {posts.length
-          ? posts.map((e) => {
+        {
+          posts.length ? (
+            posts.map((e) => {
               return (
                 <Card publication={e} deletePost={deletePost} key={e._id} />
               );
             })
-          : "" // <Loading />
+          ) : (
+            <Loading />
+          ) // <Loading />
         }
       </div>
       <div className="relative z-20">

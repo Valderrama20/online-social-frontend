@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LoginModal from "../components/login/loginModal/LoginModal";
 import { apple, google, logo } from "../asset/icons";
 import CreateUserModal from "../components/login/createUser/CreateUserModal";
+import { scrollOff } from "../utils/funciones";
 
 export default function LoginAndRegister() {
   const [modalRegister, setModalRegister] = useState(false);
@@ -14,11 +15,17 @@ export default function LoginAndRegister() {
       setModalRegister(!modalRegister);
     } else setModalLogin(!modalLogin);
   };
+
+  useEffect(() => {
+    scrollOff(modalLogin || modalRegister);
+    return () => scrollOff(false);
+  }, [modalRegister, modalLogin]);
+
   return (
     <div className="flex text-white  ">
-      <div className=" lg:flex lg:w-full lg:mt-40 m-auto ">
+      <div className=" lg:flex lg:w-full lg:mt-10 m-auto ">
         <div className=" sm:w-5/12 mb-[50px]">
-          <div className="mt-[100px] lg:mx-auto  w-12 lg:w-[70%]">{logo}</div>
+          <div className="mt-12 lg:mx-auto  w-16 lg:w-[65%]">{logo}</div>
         </div>
         <div className="">
           <h1 className="font-bold text-5xl  sm:text-6xl text-[#e8eaeb]  ">
