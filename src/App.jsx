@@ -13,10 +13,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-          path="/"
-          element={isLogin() ? <Navigate to="/home" /> : <LoginAndRegister />}
-        />
+        <Route path="/" element={<LoginAndRegister />} />
         <Route
           path="/home"
           element={isLogin() ? <Home /> : <Navigate to="/" />}

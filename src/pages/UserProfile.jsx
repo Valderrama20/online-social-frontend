@@ -11,7 +11,7 @@ import Card from "../components/CardOfPublication";
 import { formatearFecha, scrollOff } from "../utils/funciones";
 import { Link, useParams } from "react-router-dom";
 import EditProfile from "../components/smallComponenst/EditProfile";
-import Loading from "../components/smallComponenst/Loading";
+import Loading from "../components/smallComponenst/Loading.jsx";
 
 export default function ProfileUser() {
   const [posts, setPosts] = useState([]);
@@ -74,8 +74,12 @@ export default function ProfileUser() {
             ) : (
               <div className="h-[200px] w-full bg-slate-500"></div>
             )}
-            <div className="-mt-16 ml-5 border-4 border-black absolute rounded-full">
-              <UserImg size={"28"} url={data3.imageProfile} />
+            <div className="-mt-16 ml-5 border-4 border-black absolute rounded-full w-">
+              <UserImg
+                size="w-32 h-32"
+                url={data3.imageProfile}
+                user={data3.fullName}
+              />
             </div>
             <div className="flex h-16 w-full items-center justify-end">
               {data3?._id == _id && (
