@@ -44,7 +44,7 @@ export const getPosts = create((set, get) => ({
   loadData: async () => {
     try {
       const response = await axios.get(
-        "https://online-back-6i1s.onrender.com/api/v1/post"
+        "https://online-back-3z3yj.ondigitalocean.app/api/v1/post"
       );
       set({ postsArr: response.data.reverse() });
     } catch (error) {

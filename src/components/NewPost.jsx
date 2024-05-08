@@ -60,8 +60,8 @@ export default function NewPost({ postAdd }) {
 
   return (
     <div className=" hidden sm:flex pt-3 border-b borderColor">
-      <div className="pl-4 pt-2 -mr-1 ">
-        <UserImg w={"w-12"} user={data.user.fullName} />
+      <div className="pl-4 pt-2 -mr-1  ">
+        <UserImg url={data.user.imageProfile} user={data.user.fullName} />
       </div>
       <div className=" w-full mx-3 mt-3.5">
         <AutoExpandTextarea

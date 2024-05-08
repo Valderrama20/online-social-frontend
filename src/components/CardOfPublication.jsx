@@ -24,7 +24,7 @@ function Card({ publication, deletePost }) {
     userId,
     _id: publicationId,
   } = publication;
-  const { username, fullName, _id } = userId;
+  const { username, fullName, _id, imageProfile } = userId;
 
   const deletePublication = () => {
     fetchData(methods.delete, `/api/v1/post/${publicationId}`);
@@ -34,7 +34,7 @@ function Card({ publication, deletePost }) {
   return (
     <div className="flex w-full border-b-[0.2px] borderColor bg-black p-3 ">
       <Link to={`/profile/${username}/${_id}`}>
-        {<UserImg w={"w-12"} user={fullName} />}
+        {<UserImg url={imageProfile} user={fullName} />}
       </Link>
 
       <div className=" w-full mx-2 -mt-1">

@@ -1,10 +1,19 @@
-import { close } from "../asset/icons";
+import { close, logOutIcon } from "../asset/icons";
 import UserImg from "./smallComponenst/UserImg";
 import { links } from "../common/generalVarianbles";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { user } from "../common/globalState";
 
-export default function ({ isOpen, setIsOpen, user }) {
-  let { fullName, username } = user;
+export default function ({ isOpen, setIsOpen, user: user2 }) {
+  let { fullName, username, imageProfile } = user2;
+  let { clearUser } = user();
+
+  navigation = useNavigate();
+
+  let signOff = () => {
+    clearUser();
+    navigation("/");
+  };
 
   return (
     <div
@@ -22,7 +31,7 @@ export default function ({ isOpen, setIsOpen, user }) {
 
         <div>
           <div className="mt-4 mx-4">
-            <UserImg w={"w-12"} user={fullName} />
+            <UserImg url={imageProfile} user={fullName} />
 
             <span className="text-white font-bold text-2xl">{fullName}</span>
             <br />
@@ -40,7 +49,6 @@ export default function ({ isOpen, setIsOpen, user }) {
             </div>
             <div className=" space-y-6 my-6 items-center">
               {links.map((e) => {
-                console.log(e);
                 return (
                   <Link
                     to={typeof e.ruta == "function" ? e.ruta() : e.ruta}
@@ -54,6 +62,12 @@ export default function ({ isOpen, setIsOpen, user }) {
                   </Link>
                 );
               })}
+              <button onClick={signOff} className="flex space-x-6 items-center">
+                {logOutIcon}
+                <span className=" text-lg font-bold flex cursor-pointer">
+                  Log out
+                </span>
+              </button>
             </div>
           </div>
         </div>
