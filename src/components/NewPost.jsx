@@ -13,6 +13,7 @@ import { methods } from "../common/generalVarianbles";
 import UserImg from "./smallComponenst/UserImg";
 import AutoExpandTextarea from "./smallComponenst/AutoExpandTextarea";
 import { createFormData } from "../utils/funciones";
+import Loading from "../components/smallComponenst/loading";
 
 export default function NewPost({ postAdd }) {
   const [image, setImage] = useState(null);
@@ -74,7 +75,7 @@ export default function NewPost({ postAdd }) {
         />
         <div className="flex ">
           {isLoading ? (
-            ""
+            <Loading />
           ) : image ? (
             <img
               src={image}
@@ -84,7 +85,9 @@ export default function NewPost({ postAdd }) {
           ) : null}
         </div>
         <div
-          className={`flex items-center justify-between ${image && "border-t"} py-3 borderColor`}
+          className={`flex items-center justify-between ${
+            image && "border-t"
+          } py-3 borderColor`}
         >
           <div className=" text-sky-500 flex space-x-4 cursor-pointer">
             <input
@@ -104,7 +107,9 @@ export default function NewPost({ postAdd }) {
             {locationIcon}
           </div>
           <button
-            className={` text-white py-2 px-4 btn-color rounded-3xl font-semibold ${textarea.length || image ? "" : "opacity-25"} `}
+            className={` text-white py-2 px-4 btn-color rounded-3xl font-semibold ${
+              textarea.length || image ? "" : "opacity-25"
+            } `}
             onClick={createPost}
             disabled={textarea.length || image ? false : true}
           >
