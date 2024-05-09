@@ -131,7 +131,7 @@ const UserProfileEdit = ({ user: user2, isOpen, refreshUser }) => {
               <UserImg
                 url={userData.imageProfile}
                 user={userData.fullName}
-                size={"28"}
+                size={"h-28 w-28"}
               />
               <div className="absolute top-0 bg-black w-28 h-28 rounded-full opacity-30   "></div>
             </div>
