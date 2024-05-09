@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { close, logo } from "../../../asset/icons";
 import Step2 from "./Step2";
 import Step1 from "./Step1";
+import Loading from "../../smallComponenst/loading"
 
 export default function CreateUserModal({ changeState }) {
   let { data, error, isLoading, fetchData } = useAxios();
@@ -56,7 +57,7 @@ export default function CreateUserModal({ changeState }) {
           <div className="w-16 ml-[40%] ">{logo}</div>
         </div>
         {isLoading ? (
-          "<Loading />"
+          <Loading />
         ) : step == 1 ? (
           <Step1
             changeInput={changeInput}
