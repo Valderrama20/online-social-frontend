@@ -5,6 +5,7 @@ import { getPosts, user } from "../common/globalState";
 import NewPost from "./NewPost";
 import UserImg from "./smallComponenst/UserImg";
 import LateralNavBar2 from "./LateralNavBar2";
+import Loading from "../components/smallComponenst/loading"
 
 function PostsWall() {
   let [posts, setPosts] = useState([]);
@@ -69,7 +70,7 @@ function PostsWall() {
                   <Card publication={e} deletePost={deletePost} key={e._id} />
                 );
               })
-            : "<Loading />" // <Loading />
+            :  <Loading />
         }
       </div>
       <div className="relative z-20">
