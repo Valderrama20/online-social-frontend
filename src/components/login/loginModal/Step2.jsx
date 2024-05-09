@@ -10,7 +10,7 @@ function Step2 ({ userLogin, login, changeInput }) {
         <span className=" text-gray-600">{userLogin.email}</span>
       </div>
       <input
-        type="text"
+        type="password"
         name="password"
         value={userLogin.password}
         className="bg-transparent p-2  h-14 border border-gray-700"
