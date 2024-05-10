@@ -22,21 +22,25 @@ export const links = [
     id: "exploreIcon",
     icon: ExploreIcon,
     label: "Explore",
+    style: "cursor-no-drop",
   },
   {
     id: "notificationsIcon",
     icon: NotificationsIcon,
     label: "Notifications",
+    style: "cursor-no-drop",
   },
   {
     id: "messagesIcon",
     icon: MessagesIcon,
     label: "Messages",
+    style: "cursor-no-drop",
   },
   {
     id: "listsIcon",
     icon: ListsIcon,
     label: "Lists",
+    style: "cursor-no-drop",
   },
   {
     id: "profileIcon",
@@ -51,6 +55,7 @@ export const links = [
     id: "moreIcon",
     icon: MoreIcon,
     label: "More",
+    style: "cursor-no-drop",
   },
 ];
 

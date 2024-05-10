@@ -296,6 +296,7 @@ export const gifIcon = (
     width="1.3em"
     height="1.3em"
     viewBox="0 0 24 24"
+    className="opacity-50"
   >
     <g fill="none">
       <path
@@ -319,6 +320,7 @@ export const pollIcon = (
     width="1.3em"
     height="1.3em"
     viewBox="0 0 24 24"
+    className="opacity-50"
   >
     <path
       fill="currentColor"
@@ -333,6 +335,7 @@ export const emojiIcon = (
     width="1.3em"
     height="1.3em"
     viewBox="0 0 16 16"
+    className="opacity-50"
   >
     <g fill="currentColor">
       <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
@@ -347,6 +350,7 @@ export const scheduleIcon = (
     width="1.3em"
     height="1.3em"
     viewBox="0 0 24 24"
+    className="opacity-50"
   >
     <path
       fill="currentColor"
@@ -361,6 +365,7 @@ export const locationIcon = (
     width="1.3em"
     height="1.3em"
     viewBox="0 0 24 24"
+    className="opacity-50"
   >
     <path
       fill="currentColor"

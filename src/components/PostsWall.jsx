@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { engranaje, logo, pluma } from "../asset/icons";
-import Card from "./CardOfPublication";
 import { getPosts, user } from "../common/globalState";
 import NewPost from "./NewPost";
 import UserImg from "./smallComponenst/UserImg";
 import LateralNavBar2 from "./LateralNavBar2";
-import Loading from "../components/smallComponenst/loading";
 import { scrollOff } from "../utils/funciones";
+import Publications from "./smallComponenst/Publications";
 
 function PostsWall() {
   let [posts, setPosts] = useState([]);
@@ -30,9 +29,9 @@ function PostsWall() {
     setPosts([e, ...posts]);
   };
 
-  const openCreatePost = () => {
-    setIsOpen2(!isOpen2);
-    scrollOff(!isOpen2);
+  const openCreatePost = (boolean) => {
+    setIsOpen2(boolean);
+    boolean && scrollOff(boolean);
     window.scroll(0, 0);
   };
 
@@ -70,18 +69,11 @@ function PostsWall() {
       </div>
       <NewPost postAdd={postAdd} open={isOpen2} close={openCreatePost} />
 
-      <div className="smt-28">
-        {posts.length ? (
-          posts.map((e) => {
-            return <Card publication={e} deletePost={deletePost} key={e._id} />;
-          })
-        ) : (
-          <Loading />
-        )}
-      </div>
+      <Publications deletePost={deletePost} posts={posts} />
+
       {!isOpen2 && (
         <button
-          onClick={openCreatePost}
+          onClick={() => openCreatePost(true)}
           className="fixed sm:hidden bottom-16 right-6 btn-color p-4 rounded-full"
         >
           {pluma}

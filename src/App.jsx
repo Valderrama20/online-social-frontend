@@ -7,13 +7,16 @@ import { user } from "./common/globalState";
 export default function App() {
   const isLogin = () => {
     let { data } = user();
-    return !!data?.accessToken;
+    return !!data.accessToken;
   };
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LoginAndRegister />} />
+        <Route
+          path="/"
+          element={!isLogin() ? <LoginAndRegister /> : <Navigate to="/home" />}
+        />
         <Route
           path="/home"
           element={isLogin() ? <Home /> : <Navigate to="/" />}

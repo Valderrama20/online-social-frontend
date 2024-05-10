@@ -24,13 +24,11 @@ function LateralNavBar() {
             return (
               <Link
                 to={typeof e.ruta == "function" ? e.ruta() : e.ruta}
-                className=" flex space-x-4  "
+                className={` flex space-x-6 ${e.style || "cursor-pointer"} `}
                 key={e.id}
               >
                 {e.icon}
-                <span className=" text-lg font hidden lg:flex cursor-pointer">
-                  {e.label}
-                </span>
+                <span className=" text-lg font hidden lg:flex ">{e.label}</span>
               </Link>
             );
           })}
