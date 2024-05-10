@@ -27,13 +27,10 @@ const UserProfileEdit = ({ user: user2, isOpen, refreshUser }) => {
     if (userImg) {
       setUserData({ ...userData, ["imageProfile"]: userImg.url });
     }
-  }, [userImg]);
-
-  useEffect(() => {
     if (userImg2) {
       setUserData({ ...userData, ["imagePortada"]: userImg2.url });
     }
-  }, [userImg2]);
+  }, [userImg, userImg2]);
 
   const handleChange = (e) => {
     let { name, value } = e.target;

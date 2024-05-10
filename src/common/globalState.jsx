@@ -13,7 +13,7 @@ export const user = create(
       data: {},
       clearUser: () => {
         console.log("usuario eliminada");
-        set({ user: {} });
+        set({ data: {} });
         localStorage.removeItem("user-logged-in");
       },
       set: (user) => {
@@ -54,5 +54,9 @@ export const getPosts = create((set, get) => ({
   deletePost: (id) => {
     let filter = get().postsArr.filter((e) => e._id !== id);
     set({ postsArr: filter });
+  },
+  filterPost: (id) => {
+    let filter = get().postsArr.filter((e) => e.userId?._id === id);
+    return filter;
   },
 }));

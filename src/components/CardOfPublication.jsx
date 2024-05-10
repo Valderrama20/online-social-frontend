@@ -48,7 +48,7 @@ function Card({ publication, deletePost }) {
             </span>
           </div>
 
-          {data.user._id === _id && (
+          {data.user._id === _id && publicationId && (
             <div onClick={deletePublication} className="cursor-pointer">
               {close}
             </div>

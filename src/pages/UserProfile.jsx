@@ -1,36 +1,35 @@
 import { useEffect } from "react";
 import { methods } from "../common/generalVarianbles";
-import { user } from "../common/globalState";
+import { getPosts, user } from "../common/globalState";
 import useAxios from "../hooks/useAxios";
 import { useState } from "react";
 import LateralNavBar from "../components/LateralNavBar";
 import SearchInfo from "../components/SearchInfo";
 import UserImg from "../components/smallComponenst/UserImg";
 import { back, calendar } from "../asset/icons";
-import Card from "../components/CardOfPublication";
 import { formatearFecha, scrollOff } from "../utils/funciones";
 import { Link, useParams } from "react-router-dom";
 import EditProfile from "../components/EditProfile";
 import Loading from "../components/smallComponenst/loading";
+import Publications from "../components/smallComponenst/Publications";
 
 export default function ProfileUser() {
+  const { _id } = user().data.user;
+  let { filterPost, loadData, postsArr, deletePost } = getPosts();
   const [posts, setPosts] = useState([]);
   const [openEdit, setOpenEdit] = useState(false);
-
-  const { _id } = user().data.user;
   const { id } = useParams();
-  const { data, fetchData } = useAxios();
   const { data: data3, fetchData: fetchData3 } = useAxios();
 
   useEffect(() => {
     window.scroll(0, 0);
-    fetchData(methods.get, "/api/v1/post");
+    loadData();
     fetchData3(methods.get, `/api/v1/users/${id}`);
   }, []);
 
   useEffect(() => {
-    setPosts(data?.filter((e) => e.userId?._id === id).reverse());
-  }, [data]);
+    setPosts(filterPost(_id));
+  }, [postsArr]);
 
   const isOpen = () => {
     scrollOff(!openEdit);
@@ -39,7 +38,7 @@ export default function ProfileUser() {
 
   const refreshUser = async () => {
     await fetchData3(methods.get, `/api/v1/users/${id}`);
-    await fetchData(methods.get, "/api/v1/post");
+    loadData();
   };
 
   return (
@@ -136,13 +135,7 @@ export default function ProfileUser() {
                 Likes
               </span>
             </div>
-            <div className="">
-              {!posts?.length
-                ? ""
-                : posts.map((e) => {
-                    return <Card key={e._id} publication={e} />;
-                  })}
-            </div>
+            <Publications deletePost={deletePost} posts={posts} />
           </div>
         </div>
       )}
