@@ -3,8 +3,6 @@ import UserImg from "./smallComponenst/UserImg";
 import { links } from "../common/generalVarianbles";
 import { Link, useNavigate } from "react-router-dom";
 import { user } from "../common/globalState";
-import { scrollOff } from "../utils/funciones";
-import { useEffect } from "react";
 
 export default function ({ isOpen, setIsOpen, user: user2 }) {
   let { fullName, username, imageProfile } = user2;
@@ -24,10 +22,7 @@ export default function ({ isOpen, setIsOpen, user: user2 }) {
       }`}
     >
       <div className={`w-9/12 bg-black relative  border-r borderColor`}>
-        <button
-          className="absolute top-2 right-4"
-          onClick={() => setIsOpen(!isOpen)}
-        >
+        <button className="absolute top-2 right-4" onClick={setIsOpen}>
           {close}
         </button>
 

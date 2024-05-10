@@ -13,6 +13,7 @@ import UserImg from "./smallComponenst/UserImg";
 import { Link } from "react-router-dom";
 import { methods } from "../common/generalVarianbles";
 import { user } from "../common/globalState";
+import { useEffect } from "react";
 
 function Card({ publication, deletePost }) {
   const { fetchData } = useAxios();
@@ -34,7 +35,7 @@ function Card({ publication, deletePost }) {
   return (
     <div className="flex w-full border-b-[0.2px] borderColor bg-black p-3 ">
       <Link to={`/profile/${username}/${_id}`}>
-        {<UserImg url={imageProfile} user={fullName} />}
+        {<UserImg url={imageProfile} user={fullName} size="w-12 h-11" />}
       </Link>
 
       <div className=" w-full mx-2 -mt-1">

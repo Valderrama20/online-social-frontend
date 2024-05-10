@@ -14,7 +14,7 @@ import useAxios from "../hooks/useAxios";
 import { methods } from "../common/generalVarianbles";
 import UserImg from "./smallComponenst/UserImg";
 import AutoExpandTextarea from "./smallComponenst/AutoExpandTextarea";
-import { createFormData } from "../utils/funciones";
+import { createFormData, scrollOff } from "../utils/funciones";
 import Loading from "../components/smallComponenst/loading";
 
 export default function NewPost({ postAdd, open, close }) {
@@ -64,13 +64,13 @@ export default function NewPost({ postAdd, open, close }) {
 
   return (
     <div
-      className={`${!open && "hidden"} sm:flex absolute inset-0 sm:inset-auto  z-50 sm:z-0 sm:sticky bg-black w-full h-screen sm:h-auto  pt-3 border-b borderColor overflow-y-auto overflow-x-hidden  `}
+      className={`${!open && "hidden"} sm:flex  absolute inset-0 sm:inset-auto  z-50 sm:z-0 sm:sticky bg-black w-full h-full sm:h-auto  pt-3 border-b borderColor overflow-y-auto overflow-x-hidden  `}
     >
       <div className=" flex px-4 pt-2 -mr-1 justify-between  ">
         <UserImg
           url={data.user.imageProfile}
           user={data.user.fullName}
-          size="w-14 h-14"
+          size="w-16 h-14"
         />
         <button
           onClick={() => close(false)}
@@ -79,11 +79,14 @@ export default function NewPost({ postAdd, open, close }) {
           {back}
         </button>
       </div>
-      <div className=" w-full px-3 pt-3.5">
-        <AutoExpandTextarea
-          changeTextarea={changeTextarea}
-          textarea={textarea}
-        />
+
+      <div className=" w-full px-2  pt-4">
+        <div>
+          <AutoExpandTextarea
+            changeTextarea={changeTextarea}
+            textarea={textarea}
+          />
+        </div>
         <div className="flex ">
           {isLoading ? (
             <Loading />
@@ -131,12 +134,3 @@ export default function NewPost({ postAdd, open, close }) {
     </div>
   );
 }
-
-let josr = {
-  title: "string",
-  content: "",
-  likes: 0,
-  userId: "66338ab14d716038fadba2d5",
-  imageUrl:
-    "http://res.cloudinary.com/divbgt0ah/image/upload/v1715343099/wccxvxu6uh3uxaml1lbh.jpg",
-};

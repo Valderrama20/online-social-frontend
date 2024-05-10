@@ -45,6 +45,7 @@ export function formatearFecha(fechaStr) {
 }
 
 export function scrollOff(isOff) {
+  console.log("se llamo a scroll con value", isOff);
   let body = document.body.classList;
 
   isOff ? body.add("overflow-hidden") : body.remove("overflow-hidden");
