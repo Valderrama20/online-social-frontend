@@ -24,11 +24,12 @@ export default function ProfileUser() {
   useEffect(() => {
     window.scroll(0, 0);
     loadData();
+    scrollOff(false);
     fetchData3(methods.get, `/api/v1/users/${id}`);
   }, []);
 
   useEffect(() => {
-    setPosts(filterPost(_id));
+    setPosts(filterPost(id));
   }, [postsArr]);
 
   const isOpen = () => {
