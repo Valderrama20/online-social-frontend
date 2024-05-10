@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { camera, close, img } from "../../asset/icons";
-import UserImg from "./UserImg";
-import useAxios from "../../hooks/useAxios";
-import { methods } from "../../common/generalVarianbles";
-import { user } from "../../common/globalState";
-import { createFormData } from "../../utils/funciones";
+import { camera, close, img } from "../asset/icons";
+import UserImg from "./smallComponenst/UserImg";
+import useAxios from "../hooks/useAxios";
+import { methods } from "../common/generalVarianbles";
+import { user } from "../common/globalState";
+import { createFormData } from "../utils/funciones";
 
 const UserProfileEdit = ({ user: user2, isOpen, refreshUser }) => {
   const { fetchData } = useAxios();
