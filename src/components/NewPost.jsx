@@ -5,6 +5,8 @@ import {
   emojiIcon,
   scheduleIcon,
   locationIcon,
+  back,
+  puntos,
 } from "../asset/icons";
 import { useEffect, useState, useRef } from "react";
 import { user } from "../common/globalState";
@@ -15,7 +17,7 @@ import AutoExpandTextarea from "./smallComponenst/AutoExpandTextarea";
 import { createFormData } from "../utils/funciones";
 import Loading from "../components/smallComponenst/loading";
 
-export default function NewPost({ postAdd }) {
+export default function NewPost({ postAdd, open, close }) {
   const [image, setImage] = useState(null);
   const [textarea, setTextarea] = useState("");
   const {
@@ -57,18 +59,24 @@ export default function NewPost({ postAdd }) {
     postAdd({ ...post, userId: data.user, createdAt: `${new Date()}` });
     setTextarea("");
     setImage(null);
+    close();
   };
 
   return (
-    <div className=" hidden sm:flex pt-3 border-b borderColor">
-      <div className="pl-4 pt-2 -mr-1  ">
+    <div
+      className={`${!open && "hidden"} sm:flex absolute inset-0 sm:inset-auto  z-50 sm:sticky bg-black w-full h-screen sm:h-auto  pt-3 border-b borderColor overflow-y-auto overflow-x-hidden  `}
+    >
+      <div className=" flex px-4 pt-2 -mr-1 justify-between  ">
         <UserImg
           url={data.user.imageProfile}
           user={data.user.fullName}
           size="w-14 h-14"
         />
+        <button onClick={close} className=" sm:hidden text-white h-6 w-6">
+          {back}
+        </button>
       </div>
-      <div className=" w-full mx-3 mt-3.5">
+      <div className=" w-full px-3 pt-3.5">
         <AutoExpandTextarea
           changeTextarea={changeTextarea}
           textarea={textarea}
