@@ -31,8 +31,13 @@ function PostsWall() {
 
   const openCreatePost = (boolean) => {
     setIsOpen2(boolean);
-    boolean && scrollOff(boolean);
+    scrollOff(boolean);
     window.scroll(0, 0);
+  };
+
+  const openLateralNavBar = () => {
+    setIsOpen(!isOpen);
+    scrollOff(!isOpen);
   };
 
   return (
@@ -46,7 +51,7 @@ function PostsWall() {
           }}
         ></div>
         <div className=" relative z-10 flex items-center justify-between h-14 px-2  ">
-          <button onClick={() => setIsOpen(!isOpen)} className=" sm:hidden">
+          <button onClick={openLateralNavBar} className=" sm:hidden">
             <UserImg
               size={"w-10 h-10"}
               url={data.user.imageProfile}
@@ -83,7 +88,7 @@ function PostsWall() {
       <div className="relative z-20">
         <LateralNavBar2
           isOpen={isOpen}
-          setIsOpen={setIsOpen}
+          setIsOpen={openLateralNavBar}
           user={data.user}
         />
       </div>

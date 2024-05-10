@@ -22,7 +22,6 @@ const AutoExpandTextarea = ({ textarea, changeTextarea }) => {
       ></textarea>
     </div>
   );
-}
+};
 
 export default AutoExpandTextarea;
-
